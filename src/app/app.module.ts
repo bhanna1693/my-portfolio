@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import {NavModule} from './nav/nav.module';
 import { ContactComponent } from './contact/contact.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,11 +14,12 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     ContactComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NavModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NavModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

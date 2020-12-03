@@ -1,0 +1,5 @@
+@media all and (max-width: 768px) {
+  .btn-outline-primary {
+    width: 100%;
+  }
+}
