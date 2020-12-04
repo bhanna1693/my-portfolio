@@ -1,5 +1,6 @@
 <mat-sidenav-container fullscreen>
   <mat-sidenav [opened]="navStore.isExpanded$ | async"
+               (closed)="navStore.setIsExpanded(false)"
                [fixedInViewport]="true" position="end">
     <app-side-nav></app-side-nav>
   </mat-sidenav>
