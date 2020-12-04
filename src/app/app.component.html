@@ -1,5 +1,14 @@
-<app-top-nav></app-top-nav>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav [opened]="navStore.isExpanded$ | async"
+               [fixedInViewport]="true" position="end">
+    <app-side-nav></app-side-nav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-top-nav></app-top-nav>
 
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 
 

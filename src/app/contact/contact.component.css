@@ -1,5 +1,9 @@
+.submit-btn {
+  padding: 1rem 2rem;
+}
+
 @media all and (max-width: 768px) {
-  .btn-outline-primary {
+  .submit-btn {
     width: 100%;
   }
 }
