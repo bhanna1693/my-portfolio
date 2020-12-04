@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+@import '../../bootstrap/bootstrap-properties';
+
+///////////////// ANGULAR MATERIAL VARIABLES //////////////////
+$app-dark-theme: mat-dark-theme((
+  color: (
+    primary: mat-palette($mat-grey),
+    accent: mat-palette($mat-blue-gray),
+    warn: mat-palette($mat-red)
+  )
+));
+
+//////////////////// BOOTSTRAP VARIABLES /////////////////
+//$font-family-sans-serif: 'Cabin', sans-serif;
+$body-bg: bodyBg($app-dark-theme);
+$body-color: bodyColor($app-dark-theme);
+$theme-colors: themeColors($app-dark-theme);
+$light: bgCard($app-dark-theme);
+$dark: black;
+
+//$input-border-color: map-get($theme-colors, "primary");
+
+//$table-color: white;
+//$table-bg: #343a40;
+//$table-accent-bg: rgba(white, .05);
+//$table-border-color: lighten($table-bg, 7.5%);
+
+
+//$table-dark-color:            $white !default;
+//$table-dark-bg:               $gray-800 !default;
+//$table-dark-accent-bg:        rgba($white, .05) !default;
+//$table-dark-hover-color:      $table-dark-color !default;
+//$table-dark-hover-bg:         rgba($white, .075) !default;
+//$table-dark-border-color:     lighten($table-dark-bg, 7.5%) !default;
+$card-bg: bgCard($app-dark-theme);
+$card-color: white;

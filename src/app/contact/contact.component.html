@@ -10,6 +10,10 @@
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-12 col-md-6">
+          <mat-form-field>
+            <mat-label></mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" class="form-control" formControlName="name">

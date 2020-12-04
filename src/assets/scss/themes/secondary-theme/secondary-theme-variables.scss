@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+@import '../../bootstrap/bootstrap-properties';
+
+///////////////// ANGULAR MATERIAL VARIABLES //////////////////
+$app-indigo-blue-grey-theme: mat-light-theme((
+  color: (
+    primary: mat-palette($mat-indigo),
+    accent: mat-palette($mat-blue-gray),
+    warn: mat-palette($mat-red)
+  )
+));
+
+//////////////////// BOOTSTRAP VARIABLES /////////////////
+//$font-family-sans-serif: 'Cabin', sans-serif;
+$body-bg: bodyBg($app-indigo-blue-grey-theme);
+$body-color: bodyColor($app-indigo-blue-grey-theme);
+$theme-colors: themeColors($app-indigo-blue-grey-theme);
+$light: bgCard($app-indigo-blue-grey-theme);
+//$input-border-color: map-get($theme-colors, "primary");
+//$table-accent-bg: map-get($theme-colors, "primary-lighter");

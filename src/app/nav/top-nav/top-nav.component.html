@@ -1,17 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">
-      <i class="fas fa-laptop-code fa-2x text-primary"></i>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <a mat-button color="primary">
+      <mat-icon>desktop_mac</mat-icon>
     </a>
-    <button class="navbar-btn d-lg-none" type="button">
-      <i class="fas fa-bars"></i>
-    </button>
 
-    <div class="collapse navbar-collapse">
-      <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" routerLink="/portfolio">My Portfolio</a>
-        <a class="nav-item nav-link" routerLink="/contact">Say Hello</a>
-      </div>
-    </div>
-  </div>
-</nav>
+    <button mat-button class="ml-auto">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
