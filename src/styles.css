@@ -10,3 +10,14 @@ mat-form-field {
   font-family: 'europa', sans-serif;
   font-family: 'eurostile', sans-serif;
 }
+
+[mat-button].btn-outline-primary {
+  border: 2px solid blue;
+  border-radius: 3rem;
+  color: blue;
+}
+
+[mat-button].btn-outline-primary:hover {
+  background: blue;
+  color: white;
+}

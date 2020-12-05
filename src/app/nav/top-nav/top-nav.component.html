@@ -6,21 +6,30 @@
       <mat-icon inline>desktop_mac</mat-icon>
     </a>
 
-    <a mat-button
-       class="ml-auto d-none d-lg-block"
-       routerLink="/portfolio">
-      My Portfolio
-    </a>
-    <a mat-stroked-button color="primary"
+    <a *ngFor="let i of navItems$ | async"
+       mat-button
+       [color]="i.btnColor"
        class="d-none d-lg-block"
-       routerLink="/contact">
-      Say Hello
+       [ngClass]="i.classListLg"
+       [routerLink]="i.link">
+      {{i.label}}
     </a>
 
     <button mat-button
-            (click)="openSidenav()"
+            (click)="toggleExpandedState()"
             class="d-lg-none ml-auto icon-2x">
       <mat-icon inline>menu</mat-icon>
     </button>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="isExpanded$ | async"
+                   class="flex-column p-2"
+                   style="height: max-content;">
+    <a *ngFor="let i of navItems$ | async"
+       mat-button
+       [color]="i.btnColor"
+       [ngClass]="i.classListSm"
+       [routerLink]="i.link">
+      {{i.label}}
+    </a>
   </mat-toolbar-row>
 </mat-toolbar>
