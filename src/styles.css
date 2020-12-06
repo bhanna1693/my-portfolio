@@ -21,3 +21,17 @@ mat-form-field {
   background: blue;
   color: white;
 }
+
+:root {
+  /* properties set in theme service */
+  --background: null;
+  --on-background: null;
+  --primary: null;
+  --on-primary: null;
+  --secondary: null;
+  --on-secondary: null;
+  --surface: null;
+  --on-surface: null;
+  --error: null;
+  --on-error: null;
+}
