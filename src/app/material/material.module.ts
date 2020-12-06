@@ -6,6 +6,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 const modules: any[] = [
   MatToolbarModule,
@@ -15,6 +16,7 @@ const modules: any[] = [
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+  MatSlideToggleModule
 ];
 
 @NgModule({

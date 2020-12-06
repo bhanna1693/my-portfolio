@@ -38,17 +38,17 @@ export class ThemeDirective implements OnInit, OnDestroy {
 
   updateTheme(theme: Theme): void {
     // project properties onto the element
-    for (const key in theme.properties) {
-      this._elementRef.nativeElement.style.setProperty(key, theme.properties[key]);
-    }
-
-    // remove old theme
-    for (const name of this._themeService.theme) {
-      this._elementRef.nativeElement.classList.remove(`${name}-theme`);
-    }
+    Object.entries(theme.properties).forEach(([property, value]) => {
+      this.document.documentElement.style.setProperty(property, value);
+    });
 
     // alias element with theme name
-    this._elementRef.nativeElement.classList.add(`${theme.name}-theme`);
+    this.document.documentElement.classList.add(`${theme.name}-theme`);
+
+    // remove old theme alias
+    for (const name of this._themeService.theme) {
+      this.document.documentElement.classList.remove(`${name}-theme`);
+    }
   }
 
 }

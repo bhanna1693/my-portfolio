@@ -5,7 +5,7 @@ export const lightTheme: Theme = {
   properties: {
     '--background': '#f6f7f9',
     '--on-background': '#000',
-    '--primary': '#1976d2',
+    '--primary': '#3f51b5',
     '--on-primary': '#fff',
     '--secondary': '#a8a8a8',
     '--on-secondary': '#fff',

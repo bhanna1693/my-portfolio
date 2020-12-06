@@ -15,11 +15,15 @@
       {{i.label}}
     </a>
 
-    <button mat-button
-            (click)="toggleExpandedState()"
-            class="d-lg-none ml-auto icon-2x">
-      <mat-icon inline>{{(isExpanded$ | async) ? 'close' : 'menu'}}</mat-icon>
-    </button>
+    <div class="ml-auto">
+      <mat-slide-toggle (change)="toggleTheme()"></mat-slide-toggle>
+
+      <button mat-button
+              (click)="toggleExpandedState()"
+              class="d-lg-none icon-2x">
+        <mat-icon inline>{{(isExpanded$ | async) ? 'close' : 'menu'}}</mat-icon>
+      </button>
+    </div>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="isExpanded$ | async"
                    class="flex-column p-2 d-lg-none"

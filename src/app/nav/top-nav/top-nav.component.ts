@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
+import {ThemeService} from '../../theme/theme.service';
 
 @Component({
   selector: 'app-top-nav',
@@ -9,7 +10,8 @@ import {Observable} from 'rxjs';
 })
 export class TopNavComponent implements OnInit {
 
-  constructor(private navStore: NavStoreService) {
+  constructor(private navStore: NavStoreService,
+              private themeService: ThemeService) {
   }
 
   get isExpanded$(): Observable<boolean> {
@@ -29,5 +31,14 @@ export class TopNavComponent implements OnInit {
 
   close(): void {
     this.navStore.setIsExpanded(false);
+  }
+
+  toggleTheme(): void {
+    const active = this.themeService.getActiveTheme();
+    if (active.name === 'light') {
+      this.themeService.setTheme('dark');
+    } else {
+      this.themeService.setTheme('light');
+    }
   }
 }

@@ -26,9 +26,9 @@ export class ThemeService {
     return this.getTheme(this.theme);
   }
 
-  getProperty(propName: string): any {
-    return this.getActiveTheme().properties[propName];
-  }
+  // getProperty(propName: string) {
+  //   return this.getActiveTheme().properties[propName];
+  // }
 
   setTheme(name: string): void {
     this.theme = name;
