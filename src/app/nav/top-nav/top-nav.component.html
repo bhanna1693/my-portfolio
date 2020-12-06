@@ -22,7 +22,7 @@
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="isExpanded$ | async"
-                   class="flex-column p-2"
+                   class="flex-column p-2 d-lg-none"
                    style="height: max-content;">
     <a *ngFor="let i of navItems$ | async"
        mat-button
