@@ -26,4 +26,8 @@ export class TopNavComponent implements OnInit {
   toggleExpandedState(): void {
     this.navStore.setIsExpanded(!this.navStore.getIsExpanded());
   }
+
+  close(): void {
+    this.navStore.setIsExpanded(false);
+  }
 }

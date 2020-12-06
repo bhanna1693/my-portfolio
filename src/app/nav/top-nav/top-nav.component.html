@@ -18,7 +18,7 @@
     <button mat-button
             (click)="toggleExpandedState()"
             class="d-lg-none ml-auto icon-2x">
-      <mat-icon inline>menu</mat-icon>
+      <mat-icon inline>{{(isExpanded$ | async) ? 'close' : 'menu'}}</mat-icon>
     </button>
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="isExpanded$ | async"
@@ -26,6 +26,7 @@
                    style="height: max-content;">
     <a *ngFor="let i of navItems$ | async"
        mat-button
+       (click)="close()"
        [color]="i.btnColor"
        [ngClass]="i.classListSm"
        [routerLink]="i.link">
