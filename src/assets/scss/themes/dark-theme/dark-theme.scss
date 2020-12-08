@@ -1,8 +1,0 @@
-@import '../../theme-base';
-@import "dark-theme-variables";
-
-// theme-base
-@include theming($app-dark-theme);
-
-// other mixins specific to theme theme-mixin
-@import "../../bootstrap";

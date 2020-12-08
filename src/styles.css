@@ -12,14 +12,14 @@ mat-form-field {
 }
 
 [mat-button].btn-outline-primary {
-  border: 2px solid var(--primary);
+  border: 2px solid var(--theme-primary-500);
   border-radius: 3rem;
-  color: var(--primary);
+  color: var(--theme-primary-500);
 }
 
 [mat-button].btn-outline-primary:hover {
-  background: var(--primary);
-  color: var(--on-primary);
+  background: var(--theme-primary-500);
+  color: var(--theme-primary-contrast-500);
 }
 
 body {
@@ -29,20 +29,99 @@ body {
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
-  background: var(--background) !important;
-  color: var(--on-background) !important;
+  /*background: var(--background) !important;*/
+  /*color: var(--on-background) !important;*/
 }
 
 :root {
-  /* properties set in theme service */
   --background: null;
   --on-background: null;
-  --primary: null;
-  --on-primary: null;
-  --secondary: null;
-  --on-secondary: null;
-  --surface: null;
-  --on-surface: null;
-  --error: null;
-  --on-error: null;
+
+
+  --theme-primary-50: null;
+  --theme-primary-100: null;
+  --theme-primary-200: null;
+  --theme-primary-300: null;
+  --theme-primary-400: null;
+  --theme-primary-500: null;
+  --theme-primary-600: null;
+  --theme-primary-700: null;
+  --theme-primary-800: null;
+  --theme-primary-900: null;
+  --theme-primary-A100: null;
+  --theme-primary-A200: null;
+  --theme-primary-A400: null;
+  --theme-primary-A700: null;
+  --theme-primary-contrast-50: null;
+  --theme-primary-contrast-100: null;
+  --theme-primary-contrast-200: null;
+  --theme-primary-contrast-300: null;
+  --theme-primary-contrast-400: null;
+  --theme-primary-contrast-500: null;
+  --theme-primary-contrast-600: null;
+  --theme-primary-contrast-700: null;
+  --theme-primary-contrast-800: null;
+  --theme-primary-contrast-900: null;
+  --theme-primary-contrast-A100: null;
+  --theme-primary-contrast-A200: null;
+  --theme-primary-contrast-A400: null;
+  --theme-primary-contrast-A700: null;
+
+  --theme-secondary-50: null;
+  --theme-secondary-100: null;
+  --theme-secondary-200: null;
+  --theme-secondary-300: null;
+  --theme-secondary-400: null;
+  --theme-secondary-500: null;
+  --theme-secondary-600: null;
+  --theme-secondary-700: null;
+  --theme-secondary-800: null;
+  --theme-secondary-900: null;
+  --theme-secondary-A100: null;
+  --theme-secondary-A200: null;
+  --theme-secondary-A400: null;
+  --theme-secondary-A700: null;
+  --theme-secondary-contrast-50: null;
+  --theme-secondary-contrast-100: null;
+  --theme-secondary-contrast-200: null;
+  --theme-secondary-contrast-300: null;
+  --theme-secondary-contrast-400: null;
+  --theme-secondary-contrast-500: null;
+  --theme-secondary-contrast-600: null;
+  --theme-secondary-contrast-700: null;
+  --theme-secondary-contrast-800: null;
+  --theme-secondary-contrast-900: null;
+  --theme-secondary-contrast-A100: null;
+  --theme-secondary-contrast-A200: null;
+  --theme-secondary-contrast-A400: null;
+  --theme-secondary-contrast-A700: null;
+
+  --theme-warn-50: null;
+  --theme-warn-100: null;
+  --theme-warn-200: null;
+  --theme-warn-300: null;
+  --theme-warn-400: null;
+  --theme-warn-500: null;
+  --theme-warn-600: null;
+  --theme-warn-700: null;
+  --theme-warn-800: null;
+  --theme-warn-900: null;
+  --theme-warn-A100: null;
+  --theme-warn-A200: null;
+  --theme-warn-A400: null;
+  --theme-warn-A700: null;
+  --theme-warn-contrast-50: null;
+  --theme-warn-contrast-100: null;
+  --theme-warn-contrast-200: null;
+  --theme-warn-contrast-300: null;
+  --theme-warn-contrast-400: null;
+  --theme-warn-contrast-500: null;
+  --theme-warn-contrast-600: null;
+  --theme-warn-contrast-700: null;
+  --theme-warn-contrast-800: null;
+  --theme-warn-contrast-900: null;
+  --theme-warn-contrast-A100: null;
+  --theme-warn-contrast-A200: null;
+  --theme-warn-contrast-A400: null;
+  --theme-warn-contrast-A700: null;
 }

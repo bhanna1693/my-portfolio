@@ -16,7 +16,16 @@
     </a>
 
     <div class="ml-auto">
-      <mat-slide-toggle (change)="toggleTheme()"></mat-slide-toggle>
+      <button mat-button [matMenuTriggerFor]="menu">Theme</button>
+      <mat-menu #menu="matMenu">
+        <mat-button-toggle-group (click)="$event.stopPropagation()" (change)="setUiTheme($event)" class="w-100">
+          <mat-button-toggle value="light" class="w-50">Light</mat-button-toggle>
+          <mat-button-toggle value="dark" class="w-50">Dark</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <button mat-menu-item (click)="setTheme('#3f51b5', '#e91e63')">Indigo & Pink</button>
+        <button mat-menu-item (click)="setTheme('#e91e63','#607d8b')">Pink & Blue-grey</button>
+      </mat-menu>
 
       <button mat-button
               (click)="toggleExpandedState()"

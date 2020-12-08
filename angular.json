@@ -28,22 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/scss/_mat-core.scss",
-              {
-                "input": "src/assets/scss/themes/default-theme/default-theme.scss",
-                "bundleName": "default-theme",
-                "inject": true
-              },
-              {
-                "input": "src/assets/scss/themes/dark-theme/dark-theme.scss",
-                "bundleName": "dark-theme",
-                "inject": false
-              },
-              {
-                "input": "src/assets/scss/themes/secondary-theme/secondary-theme.scss",
-                "bundleName": "secondary-theme",
-                "inject": false
-              },
+              "src/assets/scss/dynamic-theme.scss",
+              "src/assets/scss/bootstrap.scss",
               "src/styles.css"
             ],
             "scripts": []

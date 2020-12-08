@@ -1,7 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
-import {ThemeService} from '../../theme/theme.service';
+import {ThemeService} from '../../services/theme/theme.service';
+import {NavItem} from '../../models/nav-item';
+import {MatSlideToggleChange} from '@angular/material/slide-toggle';
+import {MatButtonToggleChange} from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-top-nav',
@@ -18,7 +21,7 @@ export class TopNavComponent implements OnInit {
     return this.navStore.isExpanded$;
   }
 
-  get navItems$() {
+  get navItems$(): Observable<NavItem[]> {
     return this.navStore.navItems$;
   }
 
@@ -33,12 +36,29 @@ export class TopNavComponent implements OnInit {
     this.navStore.setIsExpanded(false);
   }
 
-  toggleTheme(): void {
-    const active = this.themeService.getActiveTheme();
-    if (active.name === 'light') {
-      this.themeService.setTheme('dark');
+  toggleTheme($event: MatSlideToggleChange): void {
+    if (this.themeService.primaryColor === '#3f51b5') {
+      this.themeService.primaryColor = 'green';
+      this.themeService.secondaryColor = 'yellow';
+      this.themeService.savePrimaryColor();
+      this.themeService.saveSecondaryColor();
     } else {
-      this.themeService.setTheme('light');
+      this.themeService.primaryColor = '#3f51b5';
+      this.themeService.secondaryColor = '#e91e63';
+      this.themeService.savePrimaryColor();
+      this.themeService.saveSecondaryColor();
     }
+
+  }
+
+  setUiTheme($event: MatButtonToggleChange): void {
+    this.themeService.setUiTheme($event.value);
+  }
+
+  setTheme(primary: string, accent: string): void {
+    this.themeService.primaryColor = primary;
+    this.themeService.secondaryColor = accent;
+    this.themeService.savePrimaryColor();
+    this.themeService.saveSecondaryColor();
   }
 }

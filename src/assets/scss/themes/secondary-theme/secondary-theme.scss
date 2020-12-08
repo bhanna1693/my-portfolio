@@ -1,8 +1,0 @@
-@import '../../theme-base';
-@import "secondary-theme-variables";
-
-// theme-base
-@include theming($app-indigo-blue-grey-theme);
-
-// other mixins specific to theme theme-mixin
-@import "../../bootstrap";

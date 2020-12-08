@@ -3,20 +3,18 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatInputModule} from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 const modules: any[] = [
   MatToolbarModule,
-  MatSidenavModule,
-  MatListModule,
   MatIconModule,
   MatButtonModule,
+  MatButtonToggleModule,
   MatFormFieldModule,
   MatInputModule,
-  MatSlideToggleModule
+  MatMenuModule
 ];
 
 @NgModule({
