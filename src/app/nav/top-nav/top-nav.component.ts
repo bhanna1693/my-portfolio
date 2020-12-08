@@ -3,7 +3,6 @@ import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
 import {ThemeService} from '../../services/theme/theme.service';
 import {NavItem} from '../../models/nav-item';
-import {MatSlideToggleChange} from '@angular/material/slide-toggle';
 import {MatButtonToggleChange} from '@angular/material/button-toggle';
 
 @Component({
@@ -36,28 +35,21 @@ export class TopNavComponent implements OnInit {
     this.navStore.setIsExpanded(false);
   }
 
-  toggleTheme($event: MatSlideToggleChange): void {
-    if (this.themeService.primaryColor === '#3f51b5') {
-      this.themeService.primaryColor = 'green';
-      this.themeService.secondaryColor = 'yellow';
-      this.themeService.savePrimaryColor();
-      this.themeService.saveSecondaryColor();
-    } else {
-      this.themeService.primaryColor = '#3f51b5';
-      this.themeService.secondaryColor = '#e91e63';
-      this.themeService.savePrimaryColor();
-      this.themeService.saveSecondaryColor();
-    }
-
-  }
-
   setUiTheme($event: MatButtonToggleChange): void {
     this.themeService.setUiTheme($event.value);
   }
 
-  setTheme(primary: string, accent: string): void {
-    this.themeService.primaryColor = primary;
-    this.themeService.secondaryColor = accent;
+  setThemeToPresetOption(presetTheme: 'default' | 'secondary'): void {
+    if (presetTheme === 'default') {
+      this.themeService.setUiTheme('light');
+      this.themeService.primaryColor = '#3f51b5';
+      this.themeService.secondaryColor = '#e91e63';
+    } else {
+      this.themeService.setUiTheme('dark');
+      this.themeService.primaryColor = '#e91e63';
+      this.themeService.secondaryColor = '#607d8b';
+    }
+
     this.themeService.savePrimaryColor();
     this.themeService.saveSecondaryColor();
   }
