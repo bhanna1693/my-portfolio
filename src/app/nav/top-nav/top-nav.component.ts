@@ -3,7 +3,6 @@ import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
 import {ThemeService} from '../../services/theme/theme.service';
 import {NavItem} from '../../models/nav-item';
-import {MatButtonToggleChange} from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-top-nav',
@@ -35,22 +34,15 @@ export class TopNavComponent implements OnInit {
     this.navStore.setIsExpanded(false);
   }
 
-  setUiTheme($event: MatButtonToggleChange): void {
-    this.themeService.setUiTheme($event.value);
-  }
-
   setThemeToPresetOption(presetTheme: 'default' | 'secondary'): void {
     if (presetTheme === 'default') {
       this.themeService.setUiTheme('light');
-      this.themeService.primaryColor = '#3f51b5';
-      this.themeService.secondaryColor = '#e91e63';
+      this.themeService.setPrimaryColor('#3f51b5');
+      this.themeService.setAccentColor('#e91e63');
     } else {
       this.themeService.setUiTheme('dark');
-      this.themeService.primaryColor = '#e91e63';
-      this.themeService.secondaryColor = '#607d8b';
+      this.themeService.setPrimaryColor('#e91e63');
+      this.themeService.setAccentColor('#607d8b');
     }
-
-    this.themeService.savePrimaryColor();
-    this.themeService.saveSecondaryColor();
   }
 }

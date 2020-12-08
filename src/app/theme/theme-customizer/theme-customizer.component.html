@@ -2,20 +2,32 @@
 
 <div>
   <h4>Step 1: Choose your background</h4>
-  <mat-button-toggle-group (click)="$event.stopPropagation()" (change)="setUiTheme($event)" class="w-100">
-    <mat-button-toggle value="light" class="w-50">Light</mat-button-toggle>
-    <mat-button-toggle value="dark" class="w-50">Dark</mat-button-toggle>
-  </mat-button-toggle-group>
+  <ng-container *ngIf="themeService.uiTheme$ | async as uiTheme">
+    <mat-button-toggle-group (click)="$event.stopPropagation()"
+                             (change)="setUiTheme($event)"
+                             class="w-100">
+      <mat-button-toggle [checked]="uiTheme === 'light'" value="light" class="w-50">Light</mat-button-toggle>
+      <mat-button-toggle [checked]="uiTheme === 'dark'" value="dark" class="w-50">Dark</mat-button-toggle>
+    </mat-button-toggle-group>
+  </ng-container>
 </div>
 <div>
   <h4>Step 2: Choose your Theme Colors</h4>
 
   <div>
     <label>Primary</label>
-    <input (colorPickerChange)="setPrimary($event)" [(colorPicker)]="primaryColor" [style.background]="primaryColor"/>
+    <ng-container *ngIf="primary$ | async as primary">
+      <input (colorPickerChange)="setPrimary($event)"
+             [colorPicker]="primary"
+             [style.background]="primary"/>
+    </ng-container>
   </div>
   <div>
     <label>Accent</label>
-    <input (colorPickerChange)="setAccent($event)" [(colorPicker)]="accentColor" [style.background]="accentColor"/>
+    <ng-container *ngIf="accent$ | async as accent">
+      <input (colorPickerChange)="setAccent($event)"
+             [colorPicker]="accent"
+             [style.background]="accent"/>
+    </ng-container>
   </div>
 </div>
