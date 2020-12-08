@@ -1,37 +1,53 @@
-<h2>Theme Customizer</h2>
+<div class="container">
+  <h2>Theme Customizer</h2>
 
-<div>
-  <h4>Step 1: Choose your background</h4>
-  <ng-container *ngIf="themeService.uiTheme$ | async as uiTheme">
-    <mat-button-toggle-group (click)="$event.stopPropagation()"
-                             (change)="setUiTheme($event)"
-                             class="w-100">
-      <mat-button-toggle [checked]="uiTheme === 'light'" value="light" class="w-50">Light</mat-button-toggle>
-      <mat-button-toggle [checked]="uiTheme === 'dark'" value="dark" class="w-50">Dark</mat-button-toggle>
-    </mat-button-toggle-group>
+  <ng-container *ngIf="themeConfig$ | async as themeConfig">
+    <div>
+      <h4>Step 1: Choose your background</h4>
+      <mat-button-toggle-group (click)="$event.stopPropagation()"
+                               (change)="setUiTheme($event)"
+                               class="w-100">
+        <mat-button-toggle [checked]="themeConfig.uiTheme === 'light'" value="light" class="w-50">Light
+        </mat-button-toggle>
+        <mat-button-toggle [checked]="themeConfig.uiTheme === 'dark'" value="dark" class="w-50">Dark</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div>
+      <h4>Step 2: Choose your Theme Colors</h4>
+      <h6 class="text-muted">Click to change color *</h6>
+
+      <div class="d-flex justify-content-center invisible">
+        <input #primaryInput
+               [colorPicker]="themeConfig.primary"
+               cpOutputFormat="hex"
+               (colorPickerChange)="setPrimary($event)"/>
+        <input #accentInput
+               [colorPicker]="themeConfig.accent"
+               cpOutputFormat="hex"
+               (colorPickerChange)="setAccent($event)"/>
+        <input #warnInput
+               [colorPicker]="themeConfig.warn"
+               cpOutputFormat="hex"
+               (colorPickerChange)="setWarn($event)"/>
+      </div>
+      <div class="d-flex flex-wrap">
+        <button mat-button
+                (click)="primaryInput.click()"
+                class="theme-btn primary-btn">
+          Primary: {{themeConfig.primary}}
+        </button>
+        <button mat-button
+                (click)="accentInput.click()"
+                class="theme-btn accent-btn">
+          Accent: {{themeConfig.accent}}
+        </button>
+        <button mat-button
+                (click)="warnInput.click()"
+                class="theme-btn warn-btn">
+          Warn: {{themeConfig.warn}}
+        </button>
+      </div>
+    </div>
+
   </ng-container>
-</div>
-<div>
-  <h4>Step 2: Choose your Theme Colors</h4>
-
-  <div class="d-flex">
-    <div class="w-50">
-      <ng-container *ngIf="primary$ | async as primary">
-        <div><label>Primary: {{primary}}</label></div>
-        <input class="w-100" (colorPickerChange)="setPrimary($event)"
-               [colorPicker]="primary"
-               [style.background]="primary"/>
-      </ng-container>
-    </div>
-
-    <div class="w-50">
-      <ng-container *ngIf="accent$ | async as accent">
-        <div><label>Accent: {{accent}}</label></div>
-        <input class="w-100" (colorPickerChange)="setAccent($event)"
-               [colorPicker]="accent"
-               [style.background]="accent"/>
-      </ng-container>
-    </div>
-  </div>
-
 </div>

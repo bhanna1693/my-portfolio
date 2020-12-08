@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ThemeService} from '../../services/theme/theme.service';
+import {ThemeConfig, ThemeService} from '../../services/theme/theme.service';
 import {MatButtonToggleChange} from '@angular/material/button-toggle';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-theme-customizer',
@@ -10,12 +9,12 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./theme-customizer.component.css']
 })
 export class ThemeCustomizerComponent implements OnInit {
-  primary$: Observable<string>;
-  accent$: Observable<string>;
 
-  constructor(public themeService: ThemeService) {
-    this.primary$ = themeService.primaryColor$.pipe(map((c) => c as string));
-    this.accent$ = themeService.accentColor$.pipe(map((c) => c as string));
+  constructor(private themeService: ThemeService) {
+  }
+
+  get themeConfig$(): Observable<ThemeConfig> {
+    return this.themeService.themeConfig$;
   }
 
   ngOnInit(): void {
@@ -26,7 +25,12 @@ export class ThemeCustomizerComponent implements OnInit {
   }
 
   setAccent($event: string): void {
+    console.log($event);
     this.themeService.setAccentColor($event);
+  }
+
+  setWarn($event: string): void {
+    this.themeService.setWarnColor($event);
   }
 
   setUiTheme($event: MatButtonToggleChange): void {

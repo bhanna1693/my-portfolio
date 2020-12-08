@@ -1,8 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {TinyColorHelper} from './tiny-color-helper';
-import {BehaviorSubject} from 'rxjs';
-import {ColorInput} from 'tinycolor2';
+import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 export interface Color {
@@ -11,36 +10,61 @@ export interface Color {
   darkContrast: boolean;
 }
 
-export type CssVariableType = '--theme-primary' | '--theme-accent';
+export type CssVariableType = '--theme-primary' | '--theme-accent' | '--theme-warn';
 export type UiThemeType = 'light' | 'dark';
+
+export interface ThemeConfig {
+  primary: string;
+  accent: string;
+  warn: string;
+  uiTheme: UiThemeType;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private _primaryColor$ = new BehaviorSubject<ColorInput>('#3f51b5');
-  primaryColor$ = this._primaryColor$.asObservable();
-  private _accentColor$ = new BehaviorSubject<ColorInput>('#e91e63');
-  accentColor$ = this._accentColor$.asObservable();
+  themeConfig$: Observable<ThemeConfig>;
+  private _primaryColor$ = new BehaviorSubject<string>('#3f51b5');
+  private _accentColor$ = new BehaviorSubject<string>('#e91e63');
+  private _warnColor$ = new BehaviorSubject<string>('#f44336');
   private _uiTheme$ = new BehaviorSubject<UiThemeType>('light');
-  uiTheme$ = this._uiTheme$.asObservable();
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.subscribeToPrimaryColor();
     this.subscribeToAccentColor();
+    this.subscribeToWarnColor();
     this.subscribeToUiTheme();
+    this.themeConfig$ = this.getThemeConfig$();
   }
 
-  setPrimaryColor(color: ColorInput): void {
+  setPrimaryColor(color: string): void {
     this._primaryColor$.next(color);
   }
 
-  setAccentColor(color: ColorInput): void {
+  setAccentColor(color: string): void {
     this._accentColor$.next(color);
   }
 
   setUiTheme(uiTheme: UiThemeType): void {
     this._uiTheme$.next(uiTheme);
+  }
+
+  setWarnColor(color: string): void {
+    this._warnColor$.next(color);
+  }
+
+  private getThemeConfig$(): Observable<ThemeConfig> {
+    return combineLatest([
+      this._primaryColor$,
+      this._accentColor$,
+      this._warnColor$,
+      this._uiTheme$
+    ]).pipe(
+      map(([primary, accent, warn, uiTheme]) => {
+        return {primary, accent, warn, uiTheme};
+      }),
+    );
   }
 
   private subscribeToPrimaryColor(): void {
@@ -62,7 +86,6 @@ export class ThemeService {
     });
   }
 
-
   private setCssVariables(prefix: CssVariableType, paletteMap: Color[]): void {
     for (const color of paletteMap) {
       const themeKey = `${prefix}-${color.name}`;
@@ -72,6 +95,12 @@ export class ThemeService {
       this.document.documentElement.style.setProperty(themeKey, themeValue);
       this.document.documentElement.style.setProperty(themeContrastKey, themeContrastValue);
     }
+  }
+
+  private subscribeToWarnColor(): void {
+    this._warnColor$
+      .pipe(map((color) => TinyColorHelper.computeColors(color)))
+      .subscribe((paletteMap) => this.setCssVariables('--theme-warn', paletteMap));
   }
 }
 
