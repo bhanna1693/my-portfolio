@@ -1,1 +1,21 @@
-<p>theme-customizer works!</p>
+<h2>Theme Customizer</h2>
+
+<div>
+  <h4>Step 1: Choose your background</h4>
+  <mat-button-toggle-group (click)="$event.stopPropagation()" (change)="setUiTheme($event)" class="w-100">
+    <mat-button-toggle value="light" class="w-50">Light</mat-button-toggle>
+    <mat-button-toggle value="dark" class="w-50">Dark</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<div>
+  <h4>Step 2: Choose your Theme Colors</h4>
+
+  <div>
+    <label>Primary</label>
+    <input (colorPickerChange)="setPrimary($event)" [(colorPicker)]="primaryColor" [style.background]="primaryColor"/>
+  </div>
+  <div>
+    <label>Accent</label>
+    <input (colorPickerChange)="setAccent($event)" [(colorPicker)]="accentColor" [style.background]="accentColor"/>
+  </div>
+</div>
