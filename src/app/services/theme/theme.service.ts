@@ -11,6 +11,9 @@ export interface Color {
   darkContrast: boolean;
 }
 
+export type CssVariableType = '--theme-primary' | '--theme-accent';
+export type UiThemeType = 'light' | 'dark';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -19,7 +22,7 @@ export class ThemeService {
   primaryColor$ = this._primaryColor$.asObservable();
   private _accentColor$ = new BehaviorSubject<ColorInput>('#e91e63');
   accentColor$ = this._accentColor$.asObservable();
-  private _uiTheme$ = new BehaviorSubject<'light' | 'dark'>('light');
+  private _uiTheme$ = new BehaviorSubject<UiThemeType>('light');
   uiTheme$ = this._uiTheme$.asObservable();
 
   constructor(@Inject(DOCUMENT) private document: Document) {
@@ -36,28 +39,20 @@ export class ThemeService {
     this._accentColor$.next(color);
   }
 
-  setUiTheme(uiTheme: 'light' | 'dark'): void {
+  setUiTheme(uiTheme: UiThemeType): void {
     this._uiTheme$.next(uiTheme);
   }
 
   private subscribeToPrimaryColor(): void {
     this._primaryColor$
-      .pipe(
-        map((color) => TinyColorHelper.computeColors(color))
-      )
-      .subscribe((paletteMap) => {
-        this.setCssVariables('--theme-primary', paletteMap);
-      });
+      .pipe(map((color) => TinyColorHelper.computeColors(color)))
+      .subscribe((paletteMap) => this.setCssVariables('--theme-primary', paletteMap));
   }
 
   private subscribeToAccentColor(): void {
     this._accentColor$
-      .pipe(
-        map((color) => TinyColorHelper.computeColors(color))
-      )
-      .subscribe((paletteMap) => {
-        this.setCssVariables('--theme-accent', paletteMap);
-      });
+      .pipe(map((color) => TinyColorHelper.computeColors(color)))
+      .subscribe((paletteMap) => this.setCssVariables('--theme-accent', paletteMap));
   }
 
   private subscribeToUiTheme(): void {
@@ -68,14 +63,14 @@ export class ThemeService {
   }
 
 
-  private setCssVariables(prefix: '--theme-primary' | '--theme-accent', palette: Color[]): void {
-    for (const color of palette) {
-      const key1 = `${prefix}-${color.name}`;
-      const value1 = color.hex;
-      const key2 = `${prefix}-contrast-${color.name}`;
-      const value2 = color.darkContrast ? 'rgba(black, 0.87)' : 'white';
-      this.document.documentElement.style.setProperty(key1, value1);
-      this.document.documentElement.style.setProperty(key2, value2);
+  private setCssVariables(prefix: CssVariableType, paletteMap: Color[]): void {
+    for (const color of paletteMap) {
+      const themeKey = `${prefix}-${color.name}`;
+      const themeValue = color.hex;
+      const themeContrastKey = `${prefix}-contrast-${color.name}`;
+      const themeContrastValue = color.darkContrast ? 'rgba(black, 0.87)' : 'white';
+      this.document.documentElement.style.setProperty(themeKey, themeValue);
+      this.document.documentElement.style.setProperty(themeContrastKey, themeContrastValue);
     }
   }
 }

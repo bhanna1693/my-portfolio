@@ -14,20 +14,24 @@
 <div>
   <h4>Step 2: Choose your Theme Colors</h4>
 
-  <div>
-    <label>Primary</label>
-    <ng-container *ngIf="primary$ | async as primary">
-      <input (colorPickerChange)="setPrimary($event)"
-             [colorPicker]="primary"
-             [style.background]="primary"/>
-    </ng-container>
+  <div class="d-flex">
+    <div class="w-50">
+      <ng-container *ngIf="primary$ | async as primary">
+        <div><label>Primary: {{primary}}</label></div>
+        <input class="w-100" (colorPickerChange)="setPrimary($event)"
+               [colorPicker]="primary"
+               [style.background]="primary"/>
+      </ng-container>
+    </div>
+
+    <div class="w-50">
+      <ng-container *ngIf="accent$ | async as accent">
+        <div><label>Accent: {{accent}}</label></div>
+        <input class="w-100" (colorPickerChange)="setAccent($event)"
+               [colorPicker]="accent"
+               [style.background]="accent"/>
+      </ng-container>
+    </div>
   </div>
-  <div>
-    <label>Accent</label>
-    <ng-container *ngIf="accent$ | async as accent">
-      <input (colorPickerChange)="setAccent($event)"
-             [colorPicker]="accent"
-             [style.background]="accent"/>
-    </ng-container>
-  </div>
+
 </div>
