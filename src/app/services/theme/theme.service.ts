@@ -3,6 +3,7 @@ import {DOCUMENT} from '@angular/common';
 import {TinyColorHelper} from './tiny-color-helper';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {ThemePalette} from '@angular/material/core';
 
 export interface Color {
   name: string;
@@ -10,7 +11,6 @@ export interface Color {
   darkContrast: boolean;
 }
 
-export type CssVariableType = '--theme-primary' | '--theme-accent' | '--theme-warn';
 export type UiThemeType = 'light' | 'dark';
 
 export interface ThemeConfig {
@@ -70,13 +70,19 @@ export class ThemeService {
   private subscribeToPrimaryColor(): void {
     this._primaryColor$
       .pipe(map((color) => TinyColorHelper.computeColors(color)))
-      .subscribe((paletteMap) => this.setCssVariables('--theme-primary', paletteMap));
+      .subscribe((paletteMap) => this.setCssVariables('primary', paletteMap));
   }
 
   private subscribeToAccentColor(): void {
     this._accentColor$
       .pipe(map((color) => TinyColorHelper.computeColors(color)))
-      .subscribe((paletteMap) => this.setCssVariables('--theme-accent', paletteMap));
+      .subscribe((paletteMap) => this.setCssVariables('accent', paletteMap));
+  }
+
+  private subscribeToWarnColor(): void {
+    this._warnColor$
+      .pipe(map((color) => TinyColorHelper.computeColors(color)))
+      .subscribe((paletteMap) => this.setCssVariables('warn', paletteMap));
   }
 
   private subscribeToUiTheme(): void {
@@ -86,9 +92,9 @@ export class ThemeService {
     });
   }
 
-  private setCssVariables(prefix: CssVariableType, paletteMap: Color[]): void {
+  private setCssVariables(prefix: ThemePalette, paletteMap: Color[]): void {
     for (const color of paletteMap) {
-      const themeKey = `${prefix}-${color.name}`;
+      const themeKey = `--${prefix}-${color.name}`;
       const themeValue = color.hex;
       const themeContrastKey = `${prefix}-contrast-${color.name}`;
       const themeContrastValue = color.darkContrast ? 'rgba(black, 0.87)' : 'white';
@@ -97,11 +103,7 @@ export class ThemeService {
     }
   }
 
-  private subscribeToWarnColor(): void {
-    this._warnColor$
-      .pipe(map((color) => TinyColorHelper.computeColors(color)))
-      .subscribe((paletteMap) => this.setCssVariables('--theme-warn', paletteMap));
-  }
+
 }
 
 
