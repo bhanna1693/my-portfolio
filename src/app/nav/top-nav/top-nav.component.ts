@@ -7,7 +7,7 @@ import {NavItem} from '../../models/nav-item';
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.css']
+  styleUrls: ['./top-nav.component.scss']
 })
 export class TopNavComponent implements OnInit {
   themePresets: Array<ThemeConfig & { label: string }> = [
