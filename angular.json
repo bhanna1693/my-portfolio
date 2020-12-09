@@ -29,7 +29,6 @@
             ],
             "styles": [
               "src/assets/scss/dynamic-theme.scss",
-              "src/assets/scss/bootstrap.scss",
               "src/styles.css"
             ],
             "scripts": []
