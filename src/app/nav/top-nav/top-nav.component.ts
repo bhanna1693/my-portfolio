@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
-import {ThemeService} from '../../services/theme/theme.service';
+import {ThemeConfig, ThemeService} from '../../services/theme/theme.service';
 import {NavItem} from '../../models/nav-item';
 
 @Component({
@@ -10,6 +10,22 @@ import {NavItem} from '../../models/nav-item';
   styleUrls: ['./top-nav.component.css']
 })
 export class TopNavComponent implements OnInit {
+  themePresets: Array<ThemeConfig & { label: string }> = [
+    {
+      label: 'Indigo & Pink',
+      primary: '#3f51b5',
+      accent: '#e91e63',
+      warn: '#f44336',
+      uiTheme: 'light'
+    },
+    {
+      label: 'Pink & Blue Grey',
+      primary: '#e91e63',
+      accent: '#607d8b',
+      warn: '#f44336',
+      uiTheme: 'dark'
+    }
+  ];
 
   constructor(private navStore: NavStoreService,
               private themeService: ThemeService) {
@@ -34,15 +50,7 @@ export class TopNavComponent implements OnInit {
     this.navStore.setIsExpanded(false);
   }
 
-  setThemeToPresetOption(presetTheme: 'default' | 'secondary'): void {
-    if (presetTheme === 'default') {
-      this.themeService.setUiTheme('light');
-      this.themeService.setPrimaryColor('#3f51b5');
-      this.themeService.setAccentColor('#e91e63');
-    } else {
-      this.themeService.setUiTheme('dark');
-      this.themeService.setPrimaryColor('#e91e63');
-      this.themeService.setAccentColor('#607d8b');
-    }
+  setThemeToPresetOption(themePreset: ThemeConfig): void {
+    this.themeService.setThemeConfig(themePreset);
   }
 }

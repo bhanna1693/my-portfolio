@@ -20,8 +20,7 @@
       Theme
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="setThemeToPresetOption('default')">Indigo & Pink</button>
-      <button mat-menu-item (click)="setThemeToPresetOption('secondary')">Pink & Blue-grey</button>
+      <button *ngFor="let theme of themePresets" mat-menu-item (click)="setThemeToPresetOption(theme)">{{theme.label}}</button>
       <a mat-menu-item routerLink="/theme">Customize</a>
     </mat-menu>
 

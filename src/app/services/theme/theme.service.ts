@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {DOCUMENT} from '@angular/common';
 import {TinyColorHelper} from './tiny-color-helper';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {debounceTime, map} from 'rxjs/operators';
 import {ThemePalette} from '@angular/material/core';
 
 export interface Color {
@@ -46,12 +46,19 @@ export class ThemeService {
     this._accentColor$.next(color);
   }
 
+  setWarnColor(color: string): void {
+    this._warnColor$.next(color);
+  }
+
   setUiTheme(uiTheme: UiThemeType): void {
     this._uiTheme$.next(uiTheme);
   }
 
-  setWarnColor(color: string): void {
-    this._warnColor$.next(color);
+  setThemeConfig(themePreset: ThemeConfig): void {
+    this._primaryColor$.next(themePreset.primary);
+    this._accentColor$.next(themePreset.accent);
+    this._warnColor$.next(themePreset.warn);
+    this._uiTheme$.next(themePreset.uiTheme);
   }
 
   private getThemeConfig$(): Observable<ThemeConfig> {
@@ -61,6 +68,7 @@ export class ThemeService {
       this._warnColor$,
       this._uiTheme$
     ]).pipe(
+      debounceTime(5),
       map(([primary, accent, warn, uiTheme]) => {
         return {primary, accent, warn, uiTheme};
       }),
@@ -102,8 +110,6 @@ export class ThemeService {
       this.document.documentElement.style.setProperty(themeContrastKey, themeContrastValue);
     }
   }
-
-
 }
 
 

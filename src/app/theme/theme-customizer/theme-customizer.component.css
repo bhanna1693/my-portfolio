@@ -5,16 +5,16 @@
 }
 
 .primary-btn {
-  background: var(--theme-primary-500);
-  color: var(--theme-primary-contrast-500);
+  background: var(--primary-500);
+  color: var(--primary-contrast-500);
 }
 
 .accent-btn {
-  background: var(--theme-accent-500);
-  color: var(--theme-accent-contrast-500);
+  background: var(--accent-500);
+  color: var(--accent-contrast-500);
 }
 
 .warn-btn {
-  background: var(--theme-warn-500);
-  color: var(--theme-warn-contrast-500);
+  background: var(--warn-500);
+  color: var(--warn-contrast-500);
 }
