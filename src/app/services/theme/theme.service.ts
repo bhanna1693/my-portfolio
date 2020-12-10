@@ -104,7 +104,7 @@ export class ThemeService {
     for (const color of paletteMap) {
       const themeKey = `--${prefix}-${color.name}`;
       const themeValue = color.hex;
-      const themeContrastKey = `${prefix}-contrast-${color.name}`;
+      const themeContrastKey = `--${prefix}-contrast-${color.name}`;
       const themeContrastValue = color.darkContrast ? 'rgba(black, 0.87)' : 'white';
       this.document.documentElement.style.setProperty(themeKey, themeValue);
       this.document.documentElement.style.setProperty(themeContrastKey, themeContrastValue);
