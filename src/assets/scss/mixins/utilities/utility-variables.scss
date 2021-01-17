@@ -1,0 +1,11 @@
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoints: ('sm': $breakpoint-sm, 'md': $breakpoint-md, 'lg': $breakpoint-lg, 'xl': $breakpoint-xl);
+
+$spacings: ('auto': auto, '1': .5rem, '2': 1rem, '3': 1.5rem, '4': 2rem, '5': 3rem);
+$spacing-directions: ('': '', 'top': 't', 'right': 'r', 'left': 'l', 'bottom': 'b');
+
+$displays: ('block', 'flex', 'none');
+$positions: ('relative', 'absolute', 'fixed');

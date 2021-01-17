@@ -1,0 +1,18 @@
+@import "utility-variables";
+
+@each $display in $displays {
+  .d-#{$display} {
+    display: #{$display} !important;
+  }
+}
+
+@each $display in $displays {
+  @each $breakpoint-prefix, $breakpoint-value in $breakpoints {
+    @media (min-width: $breakpoint-value) {
+      .d-#{$breakpoint-prefix}-#{$display} {
+        display: #{$display} !important;
+      }
+    }
+  }
+}
+

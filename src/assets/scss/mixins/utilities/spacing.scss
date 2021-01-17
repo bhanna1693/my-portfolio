@@ -1,0 +1,43 @@
+@import "utility-variables";
+
+@each $spacing-prefix, $spacing-value in $spacings {
+  @each $direction-prefix, $direction-value in $spacing-directions {
+    .m#{$direction-value}-#{$spacing-prefix} {
+      @if $direction-value {
+        margin-#{$direction-prefix}: #{$spacing-value} !important;
+      } @else {
+        margin: #{$spacing-value} #{$spacing-value} #{$spacing-value} #{$spacing-value} !important;
+      }
+    }
+    .p#{$direction-value}-#{$spacing-prefix} {
+      @if $direction-value {
+        padding-#{$direction-prefix}: #{$spacing-value} !important;
+      } @else {
+        padding: #{$spacing-value} #{$spacing-value} #{$spacing-value} #{$spacing-value} !important;
+      }
+    }
+  }
+}
+
+@each $breakpoint-prefix, $breakpoint-value in $breakpoints {
+  @each $spacing-prefix, $spacing-value in $spacings {
+    @each $direction-prefix, $direction-value in $spacing-directions {
+      @media all and (min-width: $breakpoint-value) {
+        .m#{$direction-value}-#{$breakpoint-prefix}-#{$spacing-prefix} {
+          @if $direction-value {
+            margin-#{$direction-prefix}: #{$spacing-value} !important;
+          } @else {
+            margin: #{$spacing-value} #{$spacing-value} #{$spacing-value} #{$spacing-value} !important;
+          }
+        }
+        .p#{$direction-value}-#{$breakpoint-prefix}-#{$spacing-prefix} {
+          @if $direction-value {
+            padding-#{$direction-prefix}: #{$spacing-value} !important;
+          } @else {
+            padding: #{$spacing-value} #{$spacing-value} #{$spacing-value} #{$spacing-value} !important;
+          }
+        }
+      }
+    }
+  }
+}
