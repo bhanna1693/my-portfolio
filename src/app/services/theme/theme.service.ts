@@ -28,7 +28,7 @@ export class ThemeService {
   private _primaryColor$ = new BehaviorSubject<string>('#3f51b5');
   private _accentColor$ = new BehaviorSubject<string>('#e91e63');
   private _warnColor$ = new BehaviorSubject<string>('#f44336');
-  private _uiTheme$ = new BehaviorSubject<UiThemeType>('light');
+  private _uiTheme$ = new BehaviorSubject<UiThemeType>(this.getUiThemeOnInit());
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     this.subscribeToPrimaryColor();
@@ -108,6 +108,15 @@ export class ThemeService {
       const themeContrastValue = color.darkContrast ? 'rgba(black, 0.87)' : 'white';
       this.document.documentElement.style.setProperty(themeKey, themeValue);
       this.document.documentElement.style.setProperty(themeContrastKey, themeContrastValue);
+    }
+  }
+
+  private getUiThemeOnInit(): UiThemeType {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // dark mode
+      return 'dark';
+    } else {
+      return 'light';
     }
   }
 }
