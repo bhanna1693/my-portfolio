@@ -20,7 +20,8 @@
       Theme
     </button>
     <mat-menu #menu="matMenu">
-      <button *ngFor="let theme of themePresets" mat-menu-item (click)="setThemeToPresetOption(theme)">{{theme.label}}</button>
+      <button *ngFor="let theme of themePresets" mat-menu-item
+              (click)="setThemeToPresetOption(theme)">{{theme.label}}</button>
       <a mat-menu-item routerLink="/theme">Customize</a>
     </mat-menu>
 
@@ -32,7 +33,8 @@
   </mat-toolbar-row>
   <mat-toolbar-row *ngIf="isExpanded$ | async"
                    class="flex-column p-2 d-lg-none"
-                   style="height: max-content;">
+                   style="height: max-content;"
+                   [@expandOnRender]>
     <a *ngFor="let i of navItems$ | async"
        mat-button
        (click)="close()"

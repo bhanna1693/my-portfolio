@@ -41,7 +41,6 @@ export class ThemeService implements OnAppInit {
   }
 
   onAppInit(): void {
-    this._uiTheme$.next(this.getUiThemeOnInit());
     this.subscribeToPrimaryColor();
     this.subscribeToAccentColor();
     this.subscribeToWarnColor();

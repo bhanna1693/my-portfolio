@@ -3,11 +3,13 @@ import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
 import {ThemeConfig, ThemeService} from '../../services/theme/theme.service';
 import {NavItem} from '../../models/nav-item';
+import {expandOnRender} from '../../animations/expand-animation';
 
 @Component({
   selector: 'app-top-nav',
   templateUrl: './top-nav.component.html',
-  styleUrls: ['./top-nav.component.scss']
+  styleUrls: ['./top-nav.component.scss'],
+  animations: [expandOnRender]
 })
 export class TopNavComponent implements OnInit {
   themePresets: Array<ThemeConfig & { label: string }> = [
