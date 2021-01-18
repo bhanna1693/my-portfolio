@@ -10,6 +10,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './material/material.module';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import {ICON_INITIALIZER} from './services/icon-registry/icon-registry.service';
+import {HttpClientModule} from '@angular/common/http';
+import {THEME_INITIALIZER} from './services/theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NavModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NavModule,
     MaterialModule,
   ],
   providers: [
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
+    ...ICON_INITIALIZER,
+    ...THEME_INITIALIZER
   ],
   bootstrap: [AppComponent]
 })

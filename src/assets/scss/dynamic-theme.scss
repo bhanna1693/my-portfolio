@@ -11,6 +11,17 @@
 
 @include angular-material-theme($app-light-theme);
 
+.ui-light {
+  --background: #fafafa;
+  --on-background: #212529;
+  --card: white;
+  --rgb-on-bg: 0, 0, 0;
+}
+
 .ui-dark {
   @include angular-material-color($app-dark-theme);
+  --background: #303030;
+  --on-background: white;
+  --card: #424242;
+  --rgb-on-bg: 255, 255, 255;
 }

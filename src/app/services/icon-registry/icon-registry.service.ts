@@ -1,11 +1,12 @@
-import {APP_INITIALIZER, Injectable, Provider} from '@angular/core';
+import {APP_INITIALIZER, Injectable} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
+import {OnAppInit} from '../../models/on-app-init';
 
 @Injectable({
   providedIn: 'root'
 })
-export class IconRegistryService {
+export class IconRegistryService implements OnAppInit {
   customSvgs = new Map<string, string>([
     ['hero', '../assets/images/hero.svg']
   ]);
@@ -14,26 +15,25 @@ export class IconRegistryService {
               private domSanitizer: DomSanitizer) {
   }
 
-  addSvgIconToMatIconRegistry(): void {
-    this.customSvgs.forEach((svg) => {
-      console.log(svg, this.customSvgs.get(svg));
-      const svgName = svg;
-      const svgPath = this.customSvgs.get(svg);
-      if (svgPath != null) {
-        this.matIconRegistry.addSvgIcon(
-          svgName,
-          this.domSanitizer.bypassSecurityTrustResourceUrl(svgPath)
-        );
-      }
+  onAppInit(): void {
+    this.addSvgIconToMatIconRegistry();
+  }
+
+  private addSvgIconToMatIconRegistry(): void {
+    this.customSvgs.forEach((iconPath, iconName) => {
+      this.matIconRegistry.addSvgIcon(
+        iconName,
+        this.domSanitizer.bypassSecurityTrustResourceUrl(iconPath)
+      );
     });
   }
 }
 
-export const ICON_INITIALIZER: Provider[] = [
+export const ICON_INITIALIZER = [
   IconRegistryService,
   {
     provide: APP_INITIALIZER,
-    useFactory: (iconService: IconRegistryService) => iconService.addSvgIconToMatIconRegistry(),
+    useFactory: (iconService: IconRegistryService) => () => iconService.onAppInit(),
     deps: [IconRegistryService],
     multi: true
   }
