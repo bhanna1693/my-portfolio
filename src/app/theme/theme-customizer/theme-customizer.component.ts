@@ -20,20 +20,23 @@ export class ThemeCustomizerComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  setPrimary($event: string): void {
-    this.themeService.setPrimaryColor($event);
+  setPrimary($event: Event): void {
+    const input = $event.target as HTMLInputElement;
+    this.themeService.setPrimaryColor(input.value);
   }
 
-  setAccent($event: string): void {
-    console.log($event);
-    this.themeService.setAccentColor($event);
+  setAccent($event: Event): void {
+    const input = $event.target as HTMLInputElement;
+    this.themeService.setAccentColor(input.value);
   }
 
-  setWarn($event: string): void {
-    this.themeService.setWarnColor($event);
+  setWarn($event: Event): void {
+    const input = $event.target as HTMLInputElement;
+    this.themeService.setWarnColor(input.value);
   }
 
   setUiTheme($event: MatButtonToggleChange): void {
     this.themeService.setUiTheme($event.value);
   }
+
 }

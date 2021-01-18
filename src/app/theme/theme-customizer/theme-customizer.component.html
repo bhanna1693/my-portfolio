@@ -1,34 +1,35 @@
 <div class="container">
-  <h2>Theme Customizer</h2>
+  <h1>Theme Customizer</h1>
 
   <ng-container *ngIf="themeConfig$ | async as themeConfig">
     <div>
       <h4>Step 1: Choose your background</h4>
       <mat-button-toggle-group (click)="$event.stopPropagation()"
                                (change)="setUiTheme($event)"
+                               [value]="themeConfig.uiTheme"
                                class="w-100">
-        <mat-button-toggle [checked]="themeConfig.uiTheme === 'light'" value="light" class="w-50">Light
+        <mat-button-toggle value="light" class="w-50">Light
         </mat-button-toggle>
-        <mat-button-toggle [checked]="themeConfig.uiTheme === 'dark'" value="dark" class="w-50">Dark</mat-button-toggle>
+        <mat-button-toggle value="dark" class="w-50">Dark</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
     <div>
       <h4>Step 2: Choose your Theme Colors</h4>
       <h6 class="text-muted">Click to change color *</h6>
 
-      <div class="d-flex justify-content-center invisible">
+      <div class="d-flex justify-content-center d-none">
         <input #primaryInput
-               [colorPicker]="themeConfig.primary"
-               cpOutputFormat="hex"
-               (colorPickerChange)="setPrimary($event)"/>
+               type="color"
+               [value]="themeConfig.primary"
+               (change)="setPrimary($event)"/>
         <input #accentInput
-               [colorPicker]="themeConfig.accent"
-               cpOutputFormat="hex"
-               (colorPickerChange)="setAccent($event)"/>
+               type="color"
+               [value]="themeConfig.accent"
+               (change)="setAccent($event)"/>
         <input #warnInput
-               [colorPicker]="themeConfig.warn"
-               cpOutputFormat="hex"
-               (colorPickerChange)="setWarn($event)"/>
+               [value]="themeConfig.warn"
+               type="color"
+               (change)="setWarn($event)"/>
       </div>
       <div class="d-flex flex-wrap">
         <button mat-button
