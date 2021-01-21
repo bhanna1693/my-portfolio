@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <a mat-button color="primary"
-       class="icon-2x"
+       class="fs-1"
        routerLink="/">
       <mat-icon inline>desktop_mac</mat-icon>
     </a>
@@ -15,7 +15,7 @@
       {{i.label}}
     </a>
 
-    <button mat-button class="ml-auto"
+    <button mat-button class="ms-auto"
             [matMenuTriggerFor]="menu">
       Theme
     </button>
@@ -27,7 +27,7 @@
 
     <button mat-button
             (click)="toggleExpandedState()"
-            class="d-lg-none icon-2x">
+            class="d-lg-none fs-1">
       <mat-icon inline>{{(isExpanded$ | async) ? 'close' : 'menu'}}</mat-icon>
     </button>
   </mat-toolbar-row>

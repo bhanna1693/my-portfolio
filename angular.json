@@ -32,7 +32,7 @@
             ],
             "styles": [
               "src/assets/scss/dynamic-theme.scss",
-              "src/assets/scss/mixins/utilities/utilities.scss",
+              "src/assets/css/bootstrap-utilities.css",
               "src/styles.scss"
             ],
             "scripts": []

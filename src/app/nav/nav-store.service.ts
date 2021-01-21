@@ -17,7 +17,7 @@ export class NavStoreService {
       {
         link: '/portfolio',
         label: 'My Portfolio',
-        classListLg: ['ml-auto'],
+        classListLg: ['ms-auto'],
         classListSm: [],
         btnColor: null
       },
