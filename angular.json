@@ -32,7 +32,9 @@
             ],
             "styles": [
               "src/assets/scss/dynamic-theme.scss",
-              "src/assets/css/bootstrap-utilities.css",
+              "src/assets/css/bootstrap/reboot.css",
+              "src/assets/css/bootstrap/grid.css",
+              "src/assets/css/bootstrap/utilities.css",
               "src/styles.scss"
             ],
             "scripts": []
