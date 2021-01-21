@@ -1,11 +1,21 @@
+@import "utility-variables";
+
 .flex-column {
   flex-direction: column !important;
 }
 
-.align-items-center {
-  align-items: center !important;
+@each $a in $align {
+  .justify-content-#{$a} {
+    justify-content: #{$a} !important;
+  }
 }
 
-.justify-content-center {
-  justify-content: center !important;
+@each $a in $align {
+  .align-items-#{$a} {
+    align-items: #{$a} !important;
+  }
+
+  .align-self-#{$a} {
+    align-self: #{$a}!important;
+  }
 }

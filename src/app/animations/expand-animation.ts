@@ -15,7 +15,7 @@ export const expandOnRender =
       )
     ]),
     transition(':leave', [
-      style({height: '*'}),
+      style({height: '*', opacity: '0'}),
       animate(
         '225ms cubic-bezier(0.4, 0.0, 0.2, 1)',
         style({height: '0px', minHeight: '0'})

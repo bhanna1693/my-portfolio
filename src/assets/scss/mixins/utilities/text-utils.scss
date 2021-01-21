@@ -1,0 +1,7 @@
+@import "utility-variables";
+
+@each $a in $align {
+  .text-#{$a} {
+    text-align: #{$a} !important;
+  }
+}
