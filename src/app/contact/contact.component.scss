@@ -1,5 +1,13 @@
-.submit-btn {
-  padding: 1rem 2rem;
+.contact-name-email-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 1rem;
+}
+
+@media all and (min-width: 768px) {
+  .contact-name-email-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media all and (max-width: 768px) {
