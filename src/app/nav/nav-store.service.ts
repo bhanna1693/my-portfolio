@@ -23,7 +23,7 @@ export class NavStoreService {
       {
         link: '/contact',
         label: 'Say Hello',
-        classList: ['btn-outline-primary'],
+        classList: ['rounded-pill', 'border-primary', 'border-2', 'border-solid', 'hover:bg-primary'],
         btnColor: 'primary'
       },
     ];

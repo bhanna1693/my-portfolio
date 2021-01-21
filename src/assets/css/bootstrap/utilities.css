@@ -1,3 +1,7 @@
+.border-solid {
+  border-style: solid !important;
+}
+
 /*!
  * Bootstrap Utilities v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
@@ -1903,6 +1907,7 @@
     text-align: center !important;
   }
 }
+
 @media (min-width: 768px) {
   .float-md-start {
     float: left !important;
@@ -2554,6 +2559,7 @@
     text-align: center !important;
   }
 }
+
 @media (min-width: 992px) {
   .float-lg-start {
     float: left !important;
@@ -3205,6 +3211,7 @@
     text-align: center !important;
   }
 }
+
 @media (min-width: 1200px) {
   .float-xl-start {
     float: left !important;
@@ -3856,6 +3863,7 @@
     text-align: center !important;
   }
 }
+
 /*@media (min-width: 1400px) {*/
 /*  .float-xxl-start {*/
 /*    float: left !important;*/
@@ -4572,6 +4580,7 @@
     font-size: 1.5rem !important;
   }
 }
+
 @media print {
   .d-print-inline {
     display: inline !important;

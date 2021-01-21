@@ -1,0 +1,33 @@
+$colors: (
+  'primary': var(--primary-500),
+  'accent': var(--accent-500),
+  'warn': var(--warn-500)
+);
+
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: #{$value} !important;
+    color: var(--#{$name}-contrast-500) !important;
+  }
+
+  .hover\:bg-#{$name}:hover {
+    background-color: #{$value} !important;
+    color: var(--#{$name}-contrast-500) !important;
+  }
+
+  .border-#{$name} {
+    border-color: #{$value} !important;
+  }
+
+  .hover\:border-#{$name}:hover {
+    border-color: #{$value} !important;
+  }
+
+  .text-#{$name} {
+    color: #{$value} !important;
+  }
+
+  .hover\:text-#{$name}:hover {
+    color: #{$value} !important;
+  }
+}

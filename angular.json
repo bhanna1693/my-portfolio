@@ -35,6 +35,7 @@
               "src/assets/css/bootstrap/reboot.css",
               "src/assets/css/bootstrap/grid.css",
               "src/assets/css/bootstrap/utilities.css",
+              "src/assets/scss/mixins/utilities/color-utils.scss",
               "src/styles.scss"
             ],
             "scripts": []
