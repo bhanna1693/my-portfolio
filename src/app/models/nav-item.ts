@@ -3,7 +3,6 @@ import {ThemePalette} from '@angular/material/core';
 export interface NavItem {
   label: string;
   link: string;
-  classListLg: string[];
-  classListSm: string[];
+  classList: string[];
   btnColor: ThemePalette | null;
 }

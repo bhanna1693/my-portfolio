@@ -17,15 +17,13 @@ export class NavStoreService {
       {
         link: '/portfolio',
         label: 'My Portfolio',
-        classListLg: ['ms-auto'],
-        classListSm: [],
+        classList: [],
         btnColor: null
       },
       {
         link: '/contact',
         label: 'Say Hello',
-        classListLg: ['btn-outline-primary'],
-        classListSm: ['btn-outline-primary'],
+        classList: ['btn-outline-primary'],
         btnColor: 'primary'
       },
     ];

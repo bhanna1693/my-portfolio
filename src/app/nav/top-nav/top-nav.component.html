@@ -1,7 +1,7 @@
 <mat-toolbar>
   <mat-toolbar-row>
     <a mat-button color="primary"
-       class="fs-1"
+       class="me-auto fs-1"
        routerLink="/">
       <mat-icon inline>desktop_mac</mat-icon>
     </a>
@@ -10,7 +10,7 @@
        mat-button
        [color]="i.btnColor"
        class="d-none d-lg-block"
-       [ngClass]="i.classListLg"
+       [ngClass]="i.classList"
        [routerLink]="i.link">
       {{i.label}}
     </a>
@@ -39,7 +39,7 @@
        mat-button
        (click)="close()"
        [color]="i.btnColor"
-       [ngClass]="i.classListSm"
+       [ngClass]="i.classList"
        [routerLink]="i.link">
       {{i.label}}
     </a>
