@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NavStoreService} from '../nav-store.service';
 import {Observable} from 'rxjs';
-import {NavItem} from '../../models/nav-item';
-import {expandOnRender} from '../../animations/expand.animation';
+import {NavItem} from '../../../models/nav-item';
+import {expandOnRender} from '../../../animations/expand.animation';
 
 @Component({
   selector: 'app-top-nav',

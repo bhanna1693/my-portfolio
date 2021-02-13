@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TopNavComponent} from './top-nav/top-nav.component';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../material/material.module';
-import {ThemePickerModule} from '../shared/theme-picker/theme-picker.module';
+import {ThemePickerModule} from '../theme-picker/theme-picker.module';
 
 
 @NgModule({

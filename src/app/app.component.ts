@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavStoreService} from './nav/nav-store.service';
+import {NavStoreService} from './shared/nav/nav-store.service';
 
 @Component({
   selector: 'app-root',

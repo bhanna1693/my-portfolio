@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {NavItem} from '../models/nav-item';
+import {NavItem} from '../../models/nav-item';
 
 @Injectable({
   providedIn: 'root'
