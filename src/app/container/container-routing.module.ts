@@ -1,5 +1,5 @@
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from '../home/home.component';
+import {HomeComponent} from '../pages/home/home.component';
 import {NgModule} from '@angular/core';
 import {ContainerComponent} from './container.component';
 
@@ -14,11 +14,11 @@ const routes: Routes = [
       },
       {
         path: 'contact',
-        loadChildren: () => import('../contact/contact.module').then(m => m.ContactModule)
+        loadChildren: () => import('../pages/contact/contact.module').then(m => m.ContactModule)
       },
       {
         path: 'portfolio',
-        loadChildren: () => import('../portfolio/portfolio.module').then(m => m.PortfolioModule)
+        loadChildren: () => import('../pages/portfolio/portfolio.module').then(m => m.PortfolioModule)
       }
     ]
   },

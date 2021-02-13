@@ -1,13 +1,9 @@
-:host {
+app-container {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
 
-app-top-nav {
-  z-index: 2;
-}
-
-mat-sidenav-container {
-  flex: 1;
+  router-outlet + * {
+    flex: 1;
+  }
 }

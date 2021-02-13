@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {PageTitleService} from '../../shared/page-title/page-title.service';
+import {PageTitleService} from '../../../services/page-title/page-title.service';
 
 @Component({
   selector: 'app-portfolio-header',

@@ -5,12 +5,12 @@ import {Title} from '@angular/platform-browser';
   providedIn: 'root'
 })
 export class PageTitleService {
-  _originalTitle = 'Brian Hanna';
+  private _originalTitle = 'Brian Hanna';
 
   constructor(private bodyTitle: Title) {
   }
 
-  _title = '';
+  private _title = '';
 
   get title(): string {
     return this._title;

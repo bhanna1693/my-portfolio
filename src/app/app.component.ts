@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {NavStoreService} from './shared/nav/nav-store.service';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,7 @@ import {NavStoreService} from './shared/nav/nav-store.service';
 })
 export class AppComponent {
   title = 'my-portfolio';
-  constructor(public navStore: NavStoreService) {
+
+  constructor() {
   }
 }
