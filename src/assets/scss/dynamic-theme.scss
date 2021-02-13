@@ -15,7 +15,7 @@
   --background: #fafafa;
   --on-background: #212529;
   --card: white;
-  --rgb-on-bg: 0, 0, 0;
+  --theme-rgb: 0, 0, 0;
 }
 
 .ui-dark {
@@ -23,5 +23,5 @@
   --background: #303030;
   --on-background: white;
   --card: #424242;
-  --rgb-on-bg: 255, 255, 255;
+  --theme-rgb: 255, 255, 255;
 }
