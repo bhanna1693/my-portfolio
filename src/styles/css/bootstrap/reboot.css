@@ -179,18 +179,18 @@ sup {
   top: -0.5em;
 }
 
-a {
-  color: #0d6efd;
-  text-decoration: underline;
-}
-a:hover {
-  color: #0a58ca;
-}
-
-a:not([href]):not([class]), a:not([href]):not([class]):hover {
-  color: inherit;
-  text-decoration: none;
-}
+/*a {*/
+/*  color: #0d6efd;*/
+/*  text-decoration: underline;*/
+/*}*/
+/*a:hover {*/
+/*  color: #0a58ca;*/
+/*}*/
+/**/
+/*a:not([href]):not([class]), a:not([href]):not([class]):hover {*/
+/*  color: inherit;*/
+/*  text-decoration: none;*/
+/*}*/
 
 pre,
 code,
@@ -241,10 +241,10 @@ figure {
   margin: 0 0 1rem;
 }
 
-img,
-svg {
-  vertical-align: middle;
-}
+/*img,*/
+/*svg {*/
+/*  vertical-align: middle;*/
+/*}*/
 
 table {
   caption-side: bottom;

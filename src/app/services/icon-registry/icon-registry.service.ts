@@ -8,7 +8,8 @@ import {OnAppInit} from '../../models/on-app-init';
 })
 export class IconRegistryService implements OnAppInit {
   customSvgs = new Map<string, string>([
-    ['hero', '../assets/images/hero.svg']
+    ['hero', '../assets/images/hero.svg'],
+    ['coding_laptop', '../assets/images/coding-laptop.svg']
   ]);
 
   constructor(private matIconRegistry: MatIconRegistry,

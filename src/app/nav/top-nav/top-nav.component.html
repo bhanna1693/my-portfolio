@@ -1,22 +1,20 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <mat-toolbar-row>
-    <a mat-button color="primary"
-       class="me-auto fs-1"
+    <a mat-button
        routerLink="/">
-      <mat-icon inline>desktop_mac</mat-icon>
+      <mat-icon svgIcon="coding_laptop"></mat-icon>
+      Brian Hanna
     </a>
 
-    <a *ngFor="let i of navItems$ | async"
-       mat-button
-       [color]="i.btnColor"
-       class="d-none d-lg-block"
-       [ngClass]="i.classList"
-       [routerLink]="i.link">
-      {{i.label}}
-    </a>
+    <a routerLink="/contact" mat-button>Say Hello</a>
+    <a routerLink="/portfolio" mat-button>Portfolio</a>
 
+    <app-theme-picker class="ms-auto"></app-theme-picker>
 
-    <app-theme-picker></app-theme-picker>
+    <button mat-button>
+      <img src="/assets/images/git/GitHub-Mark-Light-32px.png" alt="github">
+      GitHub
+    </button>
 
     <button mat-button
             (click)="toggleExpandedState()"
