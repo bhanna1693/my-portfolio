@@ -1,10 +1,13 @@
 <app-top-nav></app-top-nav>
 
 <mat-sidenav-container>
-  <mat-sidenav>
-    TODO: create dynamic portal component generator
-    <a
-      href="https://stackoverflow.com/questions/56772447/change-mat-sidenav-content-dynamically-from-any-component">Like this example</a>
+  <mat-sidenav #sidenav class="docs-component-viewer-sidenav"
+               *ngIf="panelPortal$ | async as portal"
+               [opened]="(isScreenSmall$ | async) === false"
+               [mode]="(isScreenSmall$ | async) ? 'over' : 'side'"
+               [fixedInViewport]="(isScreenSmall$ | async)"
+               [fixedTopGap]="(isExtraScreenSmall$ | async) ? 92 : 56">
+    <ng-template [cdkPortalOutlet]="portal"></ng-template>
   </mat-sidenav>
 
   <mat-sidenav-content>
