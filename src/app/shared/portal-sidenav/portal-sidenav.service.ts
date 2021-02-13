@@ -23,8 +23,6 @@ export class PortalSidenavService {
         const url = this.router.url;
         if (url.includes('/portfolio')) {
           console.log('Portfolio sidenav portal');
-          // setTimeout needed to prevent ExpressionChangedAfterChecked
-          setTimeout(() => this.sidenav?.open());
           return new ComponentPortal(PortfolioNavComponent);
         }
 

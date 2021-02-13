@@ -2,10 +2,10 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav
-               [opened]="(isScreenSmall$ | async) === false"
-               [mode]="(isScreenSmall$ | async) ? 'over' : 'side'"
-               [fixedInViewport]="(isScreenSmall$ | async)"
-               [fixedTopGap]="(isExtraScreenSmall$ | async) ? 92 : 56">
+               [opened]="(isLargeScreen | async)"
+               [mode]="(isLargeScreen | async) ? 'side' : 'over'"
+               [fixedInViewport]="(isLargeScreen | async) === false"
+               [fixedTopGap]="(isMediumScreen$ | async) ? 56 : 92">
     <app-portal-sidenav></app-portal-sidenav>
   </mat-sidenav>
 

@@ -5,11 +5,11 @@ import {map} from 'rxjs/operators';
 import {MatSidenav} from '@angular/material/sidenav';
 import {PortalSidenavService} from '../shared/portal-sidenav/portal-sidenav.service';
 
-// for top nav adjustments
-const EXTRA_SMALL_WIDTH_BREAKPOINT = 767;
-
-// for showing nav
-const SMALL_WIDTH_BREAKPOINT = 959;
+// The MEDIUM_WIDTH_BREAKPOINT is used to determine state fixedTopGap
+// (adjusting sidenav to the top nav UI change)
+const MEDIUM_WIDTH_BREAKPOINT = 768;
+// The LARGE_WIDTH_BREAKPOINT is used to determine state: opened/mode/fixedInViewport
+const LARGE_WIDTH_BREAKPOINT = 992;
 
 @Component({
   selector: 'app-container',
@@ -18,16 +18,16 @@ const SMALL_WIDTH_BREAKPOINT = 959;
   encapsulation: ViewEncapsulation.None
 })
 export class ContainerComponent implements OnInit {
-  isScreenSmall$: Observable<boolean>;
-  isExtraScreenSmall$: Observable<boolean>;
+  isLargeScreen: Observable<boolean>;
+  isMediumScreen$: Observable<boolean>;
   @ViewChild('sidenav', {static: true}) private rightPanel!: MatSidenav;
 
   constructor(private panelService: PortalSidenavService,
               private breakpoints: BreakpointObserver) {
-    this.isExtraScreenSmall$ =
-      breakpoints.observe(`(max-width: ${EXTRA_SMALL_WIDTH_BREAKPOINT}px)`)
+    this.isMediumScreen$ =
+      breakpoints.observe(`(min-width: ${MEDIUM_WIDTH_BREAKPOINT}px)`)
         .pipe(map(breakpoint => breakpoint.matches));
-    this.isScreenSmall$ = breakpoints.observe(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`)
+    this.isLargeScreen = breakpoints.observe(`(min-width: ${LARGE_WIDTH_BREAKPOINT}px)`)
       .pipe(map(breakpoint => breakpoint.matches));
   }
 
