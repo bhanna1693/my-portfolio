@@ -1,3 +1,15 @@
+//@import 'tailwindcss/base';
+//@import 'tailwindcss/components';
+//@import 'tailwindcss/utilities';
+
+@import './styles/app-theme';
+
+// Include material core styles.
+@include mat-core();
+
+@include angular-material-theme($theme);
+@include my-portfolio-app-theme($theme);
+
 mat-form-field {
   width: 100%;
 }

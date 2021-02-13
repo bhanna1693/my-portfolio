@@ -1,0 +1,24 @@
+@import '~@angular/material/theming';
+
+
+// Styles for the docs app that are based on the current theme.
+@mixin my-portfolio-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $next-theme: mat-palette($mat-red);
+
+  .app-background {
+    background: mat-color($background, background);
+  }
+
+  // include other mixins here
+}
+
+// Define the light theme.
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);

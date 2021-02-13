@@ -31,13 +31,34 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/scss/dynamic-theme.scss",
-              "src/assets/css/bootstrap/reboot.css",
-              "src/assets/css/bootstrap/grid.css",
-              "src/assets/css/bootstrap/utilities.css",
-              "src/assets/scss/mixins/utilities/color-utils.scss",
-              "src/styles.scss"
+              "src/styles/css/bootstrap/reboot.css",
+              "src/styles.scss",
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/pink-bluegrey.scss",
+                "bundleName": "assets/pink-bluegrey"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/deeppurple-amber.scss",
+                "bundleName": "assets/deeppurple-amber"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/indigo-pink.scss",
+                "bundleName": "assets/indigo-pink"
+              },
+              {
+                "inject": false,
+                "input": "src/styles/custom-themes/purple-green.scss",
+                "bundleName": "assets/purple-green"
+              },
+              "src/styles/css/bootstrap/grid.css",
+              "src/styles/css/bootstrap/utilities.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules", "src", "src/styles"]
+            },
             "scripts": []
           },
           "configurations": {

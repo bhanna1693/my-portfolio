@@ -15,15 +15,8 @@
       {{i.label}}
     </a>
 
-    <button mat-button class="ms-auto"
-            [matMenuTriggerFor]="menu">
-      Theme
-    </button>
-    <mat-menu #menu="matMenu">
-      <button *ngFor="let theme of themePresets" mat-menu-item
-              (click)="setThemeToPresetOption(theme)">{{theme.label}}</button>
-      <a mat-menu-item routerLink="/theme">Customize</a>
-    </mat-menu>
+
+    <app-theme-picker></app-theme-picker>
 
     <button mat-button
             (click)="toggleExpandedState()"

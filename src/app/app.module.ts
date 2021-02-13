@@ -12,7 +12,6 @@ import {MaterialModule} from './material/material.module';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {ICON_INITIALIZER} from './services/icon-registry/icon-registry.service';
 import {HttpClientModule} from '@angular/common/http';
-import {THEME_INITIALIZER} from './services/theme/theme.service';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import {THEME_INITIALIZER} from './services/theme/theme.service';
   ],
   providers: [
     {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}},
-    ...ICON_INITIALIZER,
-    ...THEME_INITIALIZER
+    ...ICON_INITIALIZER
   ],
   bootstrap: [AppComponent]
 })
