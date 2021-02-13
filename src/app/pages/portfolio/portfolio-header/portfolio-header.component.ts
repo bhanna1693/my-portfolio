@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {PageTitleService} from '../../../services/page-title/page-title.service';
-import {ContainerSideNavService} from '../../../container/container-side-nav.service';
+import {PortalSidenavService} from '../../../shared/portal-sidenav/portal-sidenav.service';
 
 @Component({
   selector: 'app-portfolio-header',
@@ -10,7 +10,7 @@ import {ContainerSideNavService} from '../../../container/container-side-nav.ser
 export class PortfolioHeaderComponent {
 
   constructor(private pageTitleService: PageTitleService,
-              private sidenavService: ContainerSideNavService) {
+              private sidenavService: PortalSidenavService) {
   }
 
   toggleSidenav() {

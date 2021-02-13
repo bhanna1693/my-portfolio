@@ -1,0 +1,4 @@
+<ng-container *ngIf="panelPortal$ | async as portal">
+  <ng-template [cdkPortalOutlet]="portal"></ng-template>
+</ng-container>
+
