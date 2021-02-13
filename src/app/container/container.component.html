@@ -2,12 +2,12 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav class="docs-component-viewer-sidenav"
-               *ngIf="panelPortal$ | async as portal"
-               [opened]="(isScreenSmall$ | async) === false"
+               [ngClass]="(panelClassName$ | async) || ''"
+               [opened]="(isScreenSmall$ | async) === false && (panelPortal$ | async) != null"
                [mode]="(isScreenSmall$ | async) ? 'over' : 'side'"
                [fixedInViewport]="(isScreenSmall$ | async)"
                [fixedTopGap]="(isExtraScreenSmall$ | async) ? 92 : 56">
-    <ng-template [cdkPortalOutlet]="portal"></ng-template>
+    <ng-template [cdkPortalOutlet]="panelPortal$ | async"></ng-template>
   </mat-sidenav>
 
   <mat-sidenav-content>

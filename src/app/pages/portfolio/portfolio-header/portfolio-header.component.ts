@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {PageTitleService} from '../../../services/page-title/page-title.service';
+import {ContainerSideNavService} from '../../../container/container-side-nav.service';
 
 @Component({
   selector: 'app-portfolio-header',
@@ -7,9 +8,13 @@ import {PageTitleService} from '../../../services/page-title/page-title.service'
   styleUrls: ['./portfolio-header.component.scss']
 })
 export class PortfolioHeaderComponent {
-  @Output() toggleSidenav = new EventEmitter<void>();
 
-  constructor(private pageTitleService: PageTitleService) {
+  constructor(private pageTitleService: PageTitleService,
+              private sidenavService: ContainerSideNavService) {
+  }
+
+  toggleSidenav() {
+    this.sidenavService.toggle();
   }
 
   getTitle() {

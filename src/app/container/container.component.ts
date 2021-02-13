@@ -1,12 +1,15 @@
 import {Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {ContainerSideNavService} from './container-side-nav.service';
 import {MatSidenav} from '@angular/material/sidenav';
-import {Portal} from '@angular/cdk/portal';
+import {ComponentPortal} from '@angular/cdk/portal';
 
-const EXTRA_SMALL_WIDTH_BREAKPOINT = 720;
+// for top nav adjustments
+const EXTRA_SMALL_WIDTH_BREAKPOINT = 767;
+
+// for showing nav
 const SMALL_WIDTH_BREAKPOINT = 959;
 
 @Component({
@@ -21,16 +24,21 @@ export class ContainerComponent implements OnInit {
   @ViewChild('sidenav', {static: true}) private rightPanel!: MatSidenav;
 
   constructor(private panelService: ContainerSideNavService,
-              breakpoints: BreakpointObserver) {
+              private breakpoints: BreakpointObserver) {
     this.isExtraScreenSmall$ =
       breakpoints.observe(`(max-width: ${EXTRA_SMALL_WIDTH_BREAKPOINT}px)`)
         .pipe(map(breakpoint => breakpoint.matches));
     this.isScreenSmall$ = breakpoints.observe(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`)
-      .pipe(map(breakpoint => breakpoint.matches), tap(console.log));
+      .pipe(map(breakpoint => breakpoint.matches));
   }
 
-  get panelPortal$(): Observable<Portal<any>> {
+  get panelPortal$(): Observable<ComponentPortal<any>> {
     return this.panelService.panelPortal$;
+  }
+
+  get panelClassName$(): Observable<string> {
+    return this.panelService.panelPortal$
+      .pipe(map(p => p.component.name));
   }
 
   ngOnInit(): void {
