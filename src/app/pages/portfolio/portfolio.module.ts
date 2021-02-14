@@ -7,6 +7,7 @@ import {PortfolioHeaderComponent} from './portfolio-header/portfolio-header.comp
 import {MaterialModule} from '../../shared/material/material.module';
 import { PortfolioCategoryTilesComponent } from './portfolio-category-tiles/portfolio-category-tiles.component';
 import { PortfolioNavComponent } from './portfolio-nav/portfolio-nav.component';
+import {PortalSidenavModule} from '../../shared/portal-sidenav/portal-sidenav.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PortfolioNavComponent } from './portfolio-nav/portfolio-nav.component';
   imports: [
     CommonModule,
     PortfolioRoutingModule,
-    MaterialModule
+    MaterialModule,
+    PortalSidenavModule
   ]
 })
 export class PortfolioModule {

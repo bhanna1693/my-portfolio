@@ -1,15 +1,3 @@
 <app-top-nav></app-top-nav>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav
-               [opened]="(isLargeScreen | async)"
-               [mode]="(isLargeScreen | async) ? 'side' : 'over'"
-               [fixedInViewport]="(isLargeScreen | async) === false"
-               [fixedTopGap]="(isMediumScreen$ | async) ? 56 : 92">
-    <app-portal-sidenav></app-portal-sidenav>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<router-outlet></router-outlet>
