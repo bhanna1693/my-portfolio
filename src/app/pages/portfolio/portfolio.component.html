@@ -1,11 +1,11 @@
-<app-portfolio-header></app-portfolio-header>
+<app-portfolio-header (toggleSidenav)="sidenav.toggle()"></app-portfolio-header>
 <mat-sidenav-container>
   <mat-sidenav #sidenav
                [opened]="(isLargeScreen$ | async)"
                [mode]="(isLargeScreen$ | async) ? 'side' : 'over'"
                [fixedInViewport]="(isLargeScreen$ | async) === false"
                [fixedTopGap]="(isMediumScreen$ | async) ? 56 : 92">
-    <app-portal-sidenav></app-portal-sidenav>
+    <app-portfolio-nav (closeSidenav)="sidenav.close()"></app-portfolio-nav>
   </mat-sidenav>
 
   <mat-sidenav-content>

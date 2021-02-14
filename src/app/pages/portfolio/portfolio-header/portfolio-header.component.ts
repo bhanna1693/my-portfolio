@@ -1,6 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {PageTitleService} from '../../../services/page-title/page-title.service';
-import {PortalSidenavService} from '../../../shared/portal-sidenav/portal-sidenav.service';
 
 @Component({
   selector: 'app-portfolio-header',
@@ -8,13 +7,9 @@ import {PortalSidenavService} from '../../../shared/portal-sidenav/portal-sidena
   styleUrls: ['./portfolio-header.component.scss']
 })
 export class PortfolioHeaderComponent {
+  @Output() toggleSidenav = new EventEmitter<void>();
 
-  constructor(private pageTitleService: PageTitleService,
-              private sidenavService: PortalSidenavService) {
-  }
-
-  toggleSidenav() {
-    this.sidenavService.toggle();
+  constructor(private pageTitleService: PageTitleService) {
   }
 
   getTitle() {

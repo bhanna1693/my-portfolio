@@ -8,6 +8,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 const modules: any[] = [
   MatToolbarModule,
@@ -18,7 +19,8 @@ const modules: any[] = [
   MatInputModule,
   MatMenuModule,
   MatTooltipModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatListModule
 ];
 
 @NgModule({

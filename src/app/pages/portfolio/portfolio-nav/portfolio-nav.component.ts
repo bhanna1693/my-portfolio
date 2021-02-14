@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-portfolio-nav',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio-nav.component.scss']
 })
 export class PortfolioNavComponent implements OnInit {
+  @Output() closeSidenav = new EventEmitter<void>();
+  links = [
+    {label: 'Forms', value: 'forms'},
+    {label: 'Table', value: 'table'},
+    {label: 'Table', value: '/table'},
+    {label: 'Table', value: '/table'},
+    {label: 'Table', value: '/table'},
+  ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }

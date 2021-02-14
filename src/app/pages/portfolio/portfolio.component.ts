@@ -22,8 +22,7 @@ export class PortfolioComponent implements OnInit {
   isMediumScreen$: Observable<boolean>;
   @ViewChild('sidenav', {static: true}) private rightPanel!: MatSidenav;
 
-  constructor(private panelService: PortalSidenavService,
-              private breakpoints: BreakpointObserver,
+  constructor(private breakpoints: BreakpointObserver,
               private title: PageTitleService) {
     this.isMediumScreen$ =
       breakpoints.observe(`(min-width: ${MEDIUM_WIDTH_BREAKPOINT}px)`)
@@ -33,7 +32,6 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.panelService.initialize(this.rightPanel);
     this.title.title = 'My Portfolio';
   }
 
