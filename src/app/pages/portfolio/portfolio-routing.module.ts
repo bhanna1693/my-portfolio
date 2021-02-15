@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {PortfolioComponent} from './portfolio.component';
 import {PortfolioCategoryTilesComponent} from './portfolio-category-tiles/portfolio-category-tiles.component';
-import {TableExampleComponent} from './portfolio-items/table/table-example/table-example.component';
+import {TableComponent} from './portfolio-items/table/table.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'table',
-        component: TableExampleComponent
+        component: TableComponent
       }
     ]
   }

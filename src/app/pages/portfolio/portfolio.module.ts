@@ -8,6 +8,7 @@ import {MaterialModule} from '../../shared/material/material.module';
 import {PortfolioCategoryTilesComponent} from './portfolio-category-tiles/portfolio-category-tiles.component';
 import {PortfolioNavComponent} from './portfolio-nav/portfolio-nav.component';
 import {PortalSidenavModule} from '../../shared/portal-sidenav/portal-sidenav.module';
+import {TableModule} from './portfolio-items/table/table.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {PortalSidenavModule} from '../../shared/portal-sidenav/portal-sidenav.mo
     CommonModule,
     PortfolioRoutingModule,
     MaterialModule,
-    PortalSidenavModule
+    PortalSidenavModule,
+    TableModule
   ]
 })
 export class PortfolioModule {

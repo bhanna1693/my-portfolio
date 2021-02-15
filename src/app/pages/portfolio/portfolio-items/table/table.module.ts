@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {TableComponent} from './table-example/table/table.component';
-import {TableExampleComponent} from './table-example/table-example.component';
+import {TableComponent} from './table.component';
 import {CdkTableModule} from '@angular/cdk/table';
+import { BmhTableComponent } from './bmh-table/bmh-table.component';
 
 
 @NgModule({
   declarations: [
-    TableExampleComponent,
-    TableComponent
+    TableComponent,
+    BmhTableComponent
   ],
   imports: [
     CommonModule,

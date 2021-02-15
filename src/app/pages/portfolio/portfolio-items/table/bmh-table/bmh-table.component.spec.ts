@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TableExampleComponent } from './table-example.component';
+import { BmhTableComponent } from './bmh-table.component';
 
-describe('TableExampleComponent', () => {
-  let component: TableExampleComponent;
-  let fixture: ComponentFixture<TableExampleComponent>;
+describe('BmhTableComponent', () => {
+  let component: BmhTableComponent;
+  let fixture: ComponentFixture<BmhTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableExampleComponent ]
+      declarations: [ BmhTableComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TableExampleComponent);
+    fixture = TestBed.createComponent(BmhTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
