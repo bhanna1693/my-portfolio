@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {PageTitleService} from '../../services/page-title/page-title.service';
 import {Observable} from 'rxjs';
 import {MatSidenav} from '@angular/material/sidenav';
-import {PortalSidenavService} from '../../shared/portal-sidenav/portal-sidenav.service';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 
@@ -35,4 +34,9 @@ export class PortfolioComponent implements OnInit {
     this.title.title = 'My Portfolio';
   }
 
+  handleClose() {
+    if (!this.breakpoints.isMatched(`(min-width: ${LARGE_WIDTH_BREAKPOINT}px)`)) {
+      this.rightPanel.close();
+    }
+  }
 }
