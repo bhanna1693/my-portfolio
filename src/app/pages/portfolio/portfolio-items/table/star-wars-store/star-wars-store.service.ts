@@ -15,8 +15,8 @@ export class StarWarsStoreService {
 
   getAllPeople() {
     this.starWarsControllerService.getAllPeople()
-      .pipe()
       .subscribe((resp) => {
+        console.log(resp);
         this._people.next(resp.results);
       });
   }

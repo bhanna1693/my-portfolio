@@ -100,6 +100,18 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    &.table-header-sticky {
+      border-collapse: separate;
+      border-spacing: 0;
+
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background-color: mat-color($background, background);
+      }
+    }
+
     &.table-header-primary {
       th {
         background: mat-color($primary, default);
@@ -119,14 +131,6 @@
         .mat-sort-header-arrow {
           color: inherit;
         }
-      }
-    }
-
-    &.table-header-sticky {
-      th {
-        position: sticky;
-        top: 0;
-        z-index: 1;
       }
     }
   }

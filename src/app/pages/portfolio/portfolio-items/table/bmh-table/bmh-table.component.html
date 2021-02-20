@@ -1,24 +1,24 @@
-<table cdk-table [dataSource]="dataSource" class="bmh-table table-striped table-bordered">
+<table cdk-table [dataSource]="dataSource" class="bmh-table table-striped table-header-sticky">
 
   <ng-container cdkColumnDef="name">
-    <th cdk-header-cell *cdkHeaderCellDef> Name </th>
+    <th cdk-header-cell *cdkHeaderCellDef> Name</th>
     <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="homeworld">
-    <th cdk-header-cell *cdkHeaderCellDef> Home World </th>
+    <th cdk-header-cell *cdkHeaderCellDef> Home World</th>
     <td cdk-cell *cdkCellDef="let row"> {{row.homeworld}} </td>
   </ng-container>
 
   <ng-container cdkColumnDef="species">
-    <th cdk-header-cell *cdkHeaderCellDef> Species </th>
+    <th cdk-header-cell *cdkHeaderCellDef> Species</th>
     <td cdk-cell *cdkCellDef="let row"> {{row.species}} </td>
   </ng-container>
 
-<!--  <ng-container cdkColumnDef="symbol">-->
-<!--    <th cdk-header-cell *cdkHeaderCellDef> Symbol </th>-->
-<!--    <td cdk-cell *cdkCellDef="let row"> {{row.symbol}} </td>-->
-<!--  </ng-container>-->
+  <!--  <ng-container cdkColumnDef="symbol">-->
+  <!--    <th cdk-header-cell *cdkHeaderCellDef> Symbol </th>-->
+  <!--    <td cdk-cell *cdkCellDef="let row"> {{row.symbol}} </td>-->
+  <!--  </ng-container>-->
 
   <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
   <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
