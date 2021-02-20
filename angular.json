@@ -44,7 +44,7 @@
                 "bundleName": "assets/deeppurple-amber"
               },
               {
-                "inject": false,
+                "inject": true,
                 "input": "src/styles/custom-themes/indigo-pink.scss",
                 "bundleName": "assets/indigo-pink"
               },
@@ -56,9 +56,6 @@
               "src/styles/css/bootstrap/grid.css",
               "src/styles/css/bootstrap/utilities.css"
             ],
-            "stylePreprocessorOptions": {
-              "includePaths": ["node_modules", "src", "src/styles"]
-            },
             "scripts": []
           },
           "configurations": {

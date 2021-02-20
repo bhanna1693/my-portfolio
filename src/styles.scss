@@ -7,8 +7,6 @@
 // Include material core styles.
 @include mat-core();
 
-@include angular-material-theme($theme);
-@include my-portfolio-app-theme($theme);
 
 mat-form-field {
   width: 100%;
@@ -17,98 +15,4 @@ mat-form-field {
 .font {
   font-family: 'europa', sans-serif;
   font-family: 'eurostile', sans-serif;
-}
-
-:root {
-  --background: #fafafa;
-  --on-background: #212529;
-  --card: white;
-  --theme-rgb: 0, 0, 0;
-
-  --primary-50: #e8eaf6;
-  --primary-100: #c5cae9;
-  --primary-200: #9fa8da;
-  --primary-300: #7986cb;
-  --primary-400: #5c6bc0;
-  --primary-500: #3f51b5;
-  --primary-600: #3949ab;
-  --primary-700: #303f9f;
-  --primary-800: #283593;
-  --primary-900: #1a237e;
-  --primary-A100: #8c9eff;
-  --primary-A200: #536dfe;
-  --primary-A400: #3d5afe;
-  --primary-A700: #304ffe;
-  --primary-contrast-50: rgba(black, 0.87);
-  --primary-contrast-100: rgba(black, 0.87);
-  --primary-contrast-200: rgba(black, 0.87);
-  --primary-contrast-300: white;
-  --primary-contrast-400: white;
-  --primary-contrast-500: white;
-  --primary-contrast-600: white;
-  --primary-contrast-700: white;
-  --primary-contrast-800: white;
-  --primary-contrast-900: white;
-  --primary-contrast-A100: rgba(black, 0.87);
-  --primary-contrast-A200: white;
-  --primary-contrast-A400: white;
-  --primary-contrast-A700: white;
-
-  --accent-50: #fce4ec;
-  --accent-100: #f8bbd0;
-  --accent-200: #f48fb1;
-  --accent-300: #f06292;
-  --accent-400: #ec407a;
-  --accent-500: #e91e63;
-  --accent-600: #d81b60;
-  --accent-700: #c2185b;
-  --accent-800: #ad1457;
-  --accent-900: #880e4f;
-  --accent-A100: #ff80ab;
-  --accent-A200: #ff4081;
-  --accent-A400: #f50057;
-  --accent-A700: #c51162;
-  --accent-contrast-50: rgba(black, 0.87);
-  --accent-contrast-100: rgba(black, 0.87);
-  --accent-contrast-200: rgba(black, 0.87);
-  --accent-contrast-300: rgba(black, 0.87);
-  --accent-contrast-400: rgba(black, 0.87);
-  --accent-contrast-500: rgba(black, 0.87);
-  --accent-contrast-600: white;
-  --accent-contrast-700: white;
-  --accent-contrast-800: white;
-  --accent-contrast-900: white;
-  --accent-contrast-A100: white;
-  --accent-contrast-A200: rgba(black, 0.87);
-  --accent-contrast-A400: white;
-  --accent-contrast-A700: white;
-
-  --warn-50: #ffebee;
-  --warn-100: #ffcdd2;
-  --warn-200: #ef9a9a;
-  --warn-300: #e57373;
-  --warn-400: #ef5350;
-  --warn-500: #f44336;
-  --warn-600: #e53935;
-  --warn-700: #d32f2f;
-  --warn-800: #c62828;
-  --warn-900: #b71c1c;
-  --warn-A100: #ff8a80;
-  --warn-A200: #ff5252;
-  --warn-A400: #ff1744;
-  --warn-A700: #d50000;
-  --warn-contrast-50: rgba(black, 0.87);
-  --warn-contrast-100: rgba(black, 0.87);
-  --warn-contrast-200: rgba(black, 0.87);
-  --warn-contrast-300: rgba(black, 0.87);
-  --warn-contrast-400: rgba(black, 0.87);
-  --warn-contrast-500: white;
-  --warn-contrast-600: white;
-  --warn-contrast-700: white;
-  --warn-contrast-800: white;
-  --warn-contrast-900: white;
-  --warn-contrast-A100: rgba(black, 0.87);
-  --warn-contrast-A200: white;
-  --warn-contrast-A400: white;
-  --warn-contrast-A700: white;
 }

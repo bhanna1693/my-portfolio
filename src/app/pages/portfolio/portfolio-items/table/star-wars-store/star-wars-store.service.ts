@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {StarWarsControllerService} from '../../../../../services/controllers/star-wars-controller.service';
 import {BehaviorSubject} from 'rxjs';
+import {Result} from '../../../../../models/star-wars-people-dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StarWarsStoreService {
-  _people = new BehaviorSubject([]);
+  private _people = new BehaviorSubject<Result[]>([]);
   people$ = this._people.asObservable();
 
   constructor(private starWarsControllerService: StarWarsControllerService) {
@@ -14,8 +15,9 @@ export class StarWarsStoreService {
 
   getAllPeople() {
     this.starWarsControllerService.getAllPeople()
+      .pipe()
       .subscribe((resp) => {
-        this._people.next(resp);
+        this._people.next(resp.results);
       });
   }
 }

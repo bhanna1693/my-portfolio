@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DatasourceService} from '../datasource/datasource.service';
 
 @Component({
   selector: 'app-bmh-table',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BmhTableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datasourceService: DatasourceService) {
+  }
+
+  get dataSource() {
+    return this.datasourceService.datasource;
+  }
+
+  get displayedColumns() {
+    return this.datasourceService.displayedColumns;
+  }
 
   ngOnInit(): void {
   }

@@ -5,6 +5,11 @@
 $primary: mat-palette($mat-pink);
 $accent: mat-palette($mat-blue-grey);
 
-$theme: mat-dark-theme($primary, $accent);
+$theme: mat-dark-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+  )
+));
 @include angular-material-theme($theme);
 @include my-portfolio-app-theme($theme);

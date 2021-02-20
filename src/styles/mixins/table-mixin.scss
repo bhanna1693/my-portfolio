@@ -1,0 +1,133 @@
+@import "~@angular/material/theming";
+
+@function getThemeRgba($theme, $opacity: 1) {
+  // must return interpolated value since CSS variables do not accept rgba() as values
+  $is-dark-theme: map-get($theme, is-dark);
+  @if ($is-dark-theme) {
+    @return #{rgba(255, 255, 255, $opacity)};
+  } @else {
+    @return #{rgba(0, 0, 0, $opacity)};
+  }
+}
+
+@mixin table($theme) {
+  // retrieve variables from theme
+  // (all possible variables, use only what you really need)
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, accent);
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+
+  .bmh-table {
+    --bs-table-bg: transparent;
+    --bs-table-striped-color: mat-color($foreground, text);
+    --bs-table-striped-bg: getThemeRgba($theme, 0.05);
+    --bs-table-active-color: mat-color($foreground, text);
+    --bs-table-active-bg: getThemeRgba($theme, 0.1);
+    --bs-table-hover-color: mat-color($foreground, text);
+    --bs-table-hover-bg: getThemeRgba($theme, 0.075);
+    --bs-table-accent-bg: null;
+
+    width: 100%;
+    //margin-bottom: 1rem;
+    //color: #212529;
+    vertical-align: top;
+    border-color: getThemeRgba($theme, 0.15);
+
+    //noinspection CssInvalidFunction
+    & > :not(caption) > * > * {
+      padding: 0.5rem 0.5rem;
+      background-color: var(--bs-table-bg);
+      background-image: linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
+      border-bottom-width: 1px;
+    }
+
+    & > tbody {
+      vertical-align: inherit;
+    }
+
+    & > thead {
+      vertical-align: bottom;
+    }
+
+    & > :not(:last-child) > :last-child > * {
+      border-bottom-color: currentColor;
+    }
+
+    &.caption-top {
+      caption-side: top;
+    }
+
+    &.table-sm > :not(caption) > * > * {
+      padding: 0.25rem 0.25rem;
+    }
+
+    &.table-lg > :not(caption) > * > * {
+      padding: 0.75rem 0.75rem;
+    }
+
+    &.table-bordered > :not(caption) > * {
+      border-width: 1px 0;
+    }
+
+    &.table-bordered > :not(caption) > * > * {
+      border-width: 0 1px;
+    }
+
+    &.table-borderless > :not(caption) > * > * {
+      border-bottom-width: 0;
+    }
+
+    &.table-striped > tbody > tr:nth-of-type(odd) {
+      --bs-table-accent-bg: var(--bs-table-striped-bg);
+      color: var(--bs-table-striped-color);
+    }
+
+    &.table-active {
+      --bs-table-accent-bg: var(--bs-table-active-bg);
+      color: var(--bs-table-active-color);
+    }
+
+    &.table-hover > tbody > tr:hover {
+      --bs-table-accent-bg: var(--bs-table-hover-bg);
+      color: var(--bs-table-hover-color);
+      cursor: pointer;
+    }
+
+    &.table-responsive {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    &.table-header-primary {
+      th {
+        background: mat-color($primary, default);
+        color: mat-color($primary, default-contrast);
+
+        .mat-sort-header-arrow {
+          color: inherit;
+        }
+      }
+    }
+
+    &.table-header-accent {
+      th {
+        background: var(--accent-500);
+        color: var(--accent-contrast-500);
+
+        .mat-sort-header-arrow {
+          color: inherit;
+        }
+      }
+    }
+
+    &.table-header-sticky {
+      th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+      }
+    }
+  }
+}

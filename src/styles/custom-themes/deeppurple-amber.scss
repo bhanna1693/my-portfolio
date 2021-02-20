@@ -4,6 +4,11 @@
 $primary: mat-palette($mat-deep-purple);
 $accent:  mat-palette($mat-amber, A200, A100, A400);
 
-$theme: mat-light-theme($primary, $accent);
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+  )
+));
 @include angular-material-theme($theme);
 @include my-portfolio-app-theme($theme);
