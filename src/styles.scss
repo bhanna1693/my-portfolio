@@ -12,6 +12,14 @@ mat-form-field {
   width: 100%;
 }
 
+.scroll-flex-fill {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
 .font {
   font-family: 'europa', sans-serif;
   font-family: 'eurostile', sans-serif;

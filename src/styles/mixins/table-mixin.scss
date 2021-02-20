@@ -1,12 +1,13 @@
 @import "~@angular/material/theming";
 
+// must interpolate value if using CSS variables since they do not accept rgba() as values
+// @example #{getThemeRgba($theme, 0.05)}
 @function getThemeRgba($theme, $opacity: 1) {
-  // must return interpolated value since CSS variables do not accept rgba() as values
   $is-dark-theme: map-get($theme, is-dark);
   @if ($is-dark-theme) {
-    @return #{rgba(255, 255, 255, $opacity)};
+    @return rgba(255, 255, 255, $opacity);
   } @else {
-    @return #{rgba(0, 0, 0, $opacity)};
+    @return rgba(0, 0, 0, $opacity);
   }
 }
 
@@ -22,11 +23,11 @@
   .bmh-table {
     --bs-table-bg: transparent;
     --bs-table-striped-color: mat-color($foreground, text);
-    --bs-table-striped-bg: getThemeRgba($theme, 0.05);
+    --bs-table-striped-bg: #{getThemeRgba($theme, 0.05)};
     --bs-table-active-color: mat-color($foreground, text);
-    --bs-table-active-bg: getThemeRgba($theme, 0.1);
+    --bs-table-active-bg: #{getThemeRgba($theme, 0.1)};
     --bs-table-hover-color: mat-color($foreground, text);
-    --bs-table-hover-bg: getThemeRgba($theme, 0.075);
+    --bs-table-hover-bg: #{getThemeRgba($theme, 0.075)};
     --bs-table-accent-bg: null;
 
     width: 100%;

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TableComponent} from './table.component';
 import {CdkTableModule} from '@angular/cdk/table';
 import { BmhTableComponent } from './bmh-table/bmh-table.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -10,10 +11,11 @@ import { BmhTableComponent } from './bmh-table/bmh-table.component';
     TableComponent,
     BmhTableComponent
   ],
-  imports: [
-    CommonModule,
-    CdkTableModule
-  ]
+    imports: [
+        CommonModule,
+        CdkTableModule,
+        MatPaginatorModule
+    ]
 })
 export class TableModule {
 }
