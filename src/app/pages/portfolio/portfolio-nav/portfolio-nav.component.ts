@@ -8,11 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class PortfolioNavComponent implements OnInit {
   @Output() closeSidenav = new EventEmitter<void>();
   links = [
-    {label: 'Forms', value: 'forms'},
-    {label: 'Table', value: 'table'},
-    {label: 'Table', value: '/table'},
-    {label: 'Table', value: '/table'},
-    {label: 'Table', value: '/table'},
+    {label: 'Table', value: 'table'}
   ];
 
   constructor() {
