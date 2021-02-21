@@ -1,1 +1,15 @@
-<p>portfolio-category-tiles works!</p>
+<div class="container mt-3">
+  <h1 class="text-center">Below are some of the things I excel at developing. </h1>
+
+  <div class="portfolio-grid">
+    <a *ngFor="let p of portfolioItems" [routerLink]="['/portfolio', p.id]" style="text-decoration: none;">
+      <mat-card>
+        <!--    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+        <mat-card-content>
+          <h2>{{p.name}}</h2>
+          <h3>{{p.summary}}</h3>
+        </mat-card-content>
+      </mat-card>
+    </a>
+  </div>
+</div>

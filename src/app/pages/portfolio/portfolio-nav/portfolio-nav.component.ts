@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 export interface PortfolioItem {
+  summary: string;
   name: string;
   id: string;
 }
@@ -22,6 +23,6 @@ export class PortfolioNavComponent implements OnInit {
 }
 
 export const portfolioItems: PortfolioItem[] = [
-  {name: 'Table', id: 'table'},
-  {name: 'Forms', id: 'forms'}
+  {name: 'Table', id: 'table', summary: 'An in-depth example of my table implementation.'},
+  {name: 'Forms', id: 'forms', summary: 'Form building and validation example.'}
 ];
