@@ -5,7 +5,7 @@
                [mode]="(isLargeScreen$ | async) ? 'side' : 'over'"
                [fixedInViewport]="(isLargeScreen$ | async) === false"
                [fixedTopGap]="(isMediumScreen$ | async) ? 56 : 92">
-    <app-portfolio-nav (closeSidenav)="handleClose()"></app-portfolio-nav>
+    <app-portfolio-nav (navItemSelected)="handleItemSelected($event)"></app-portfolio-nav>
   </mat-sidenav>
 
   <mat-sidenav-content>

@@ -1,15 +1,18 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
+export interface PortfolioItem {
+  name: string;
+  route: string;
+}
+
 @Component({
   selector: 'app-portfolio-nav',
   templateUrl: './portfolio-nav.component.html',
   styleUrls: ['./portfolio-nav.component.scss']
 })
 export class PortfolioNavComponent implements OnInit {
-  @Output() closeSidenav = new EventEmitter<void>();
-  links = [
-    {label: 'Table', value: 'table'}
-  ];
+  @Output() navItemSelected = new EventEmitter<PortfolioItem>();
+  links: PortfolioItem[] = portfolioItems;
 
   constructor() {
   }
@@ -17,3 +20,8 @@ export class PortfolioNavComponent implements OnInit {
   ngOnInit(): void {
   }
 }
+
+export const portfolioItems: PortfolioItem[] = [
+  {name: 'Table', route: '/portfolio/table'},
+  {name: 'Forms', route: '/portfolio/forms'}
+];

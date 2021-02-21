@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {PortfolioComponent} from './portfolio.component';
 import {PortfolioCategoryTilesComponent} from './portfolio-category-tiles/portfolio-category-tiles.component';
 import {TableComponent} from './portfolio-items/table/table.component';
+import {FormsComponent} from './portfolio-items/forms/forms.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: 'table',
         component: TableComponent
+      },
+      {
+        path: 'forms',
+        component: FormsComponent
       }
     ]
   }
