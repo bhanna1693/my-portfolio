@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 export interface PortfolioItem {
   name: string;
-  route: string;
+  id: string;
 }
 
 @Component({
@@ -22,6 +22,6 @@ export class PortfolioNavComponent implements OnInit {
 }
 
 export const portfolioItems: PortfolioItem[] = [
-  {name: 'Table', route: '/portfolio/table'},
-  {name: 'Forms', route: '/portfolio/forms'}
+  {name: 'Table', id: 'table'},
+  {name: 'Forms', id: 'forms'}
 ];

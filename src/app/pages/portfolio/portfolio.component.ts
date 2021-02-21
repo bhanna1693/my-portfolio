@@ -54,6 +54,6 @@ export class PortfolioComponent implements OnInit {
       startWith(this.router.url),
       finalize(() => this.title.title = '')
     )
-      .subscribe(url => this.title.title = portfolioItems.find(p => p.route === url)?.name || 'My Portfolio');
+      .subscribe(url => this.title.title = portfolioItems.find(p => url.includes(p.id))?.name || 'My Portfolio');
   }
 }

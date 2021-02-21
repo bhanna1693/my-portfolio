@@ -18,7 +18,7 @@ export class PageTitleService {
 
   set title(title: string) {
     this._title = title;
-    if (title !== '') {
+    if (title) {
       title = `${title} | Brian Hanna`;
     } else {
       title = this._originalTitle;

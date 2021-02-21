@@ -12,7 +12,7 @@ export class PortfolioHeaderComponent {
   constructor(private pageTitleService: PageTitleService) {
   }
 
-  getTitle() {
+  get title(): string {
     return this.pageTitleService.title;
   }
 }
