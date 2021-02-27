@@ -1,0 +1,5 @@
+<div class="container">
+  <ng-container *ngIf="blogs$ | async as blogs">
+    <app-blog-list [blogs]="blogs"></app-blog-list>
+  </ng-container>
+</div>
