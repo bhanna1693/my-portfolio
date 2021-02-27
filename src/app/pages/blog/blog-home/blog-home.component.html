@@ -1,5 +1,9 @@
 <div class="container">
   <ng-container *ngIf="blogs$ | async as blogs">
+    <div class="row my-3 featured-item">
+      <app-blog-item [blog]="blogs[0]"></app-blog-item>
+    </div>
+
     <app-blog-list [blogs]="blogs"></app-blog-list>
   </ng-container>
 </div>

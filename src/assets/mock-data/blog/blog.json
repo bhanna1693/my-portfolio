@@ -1,42 +1,42 @@
 [
   {
     "id": 1,
-    "subject": "My First Blog Pose",
+    "subject": "My First Blog Post",
     "content": "Mock data",
     "date": "2021-02-28",
     "img": "/assets/images/blog-img.jpeg"
   },
   {
     "id": 1,
-    "subject": "My First Blog Pose",
+    "subject": "My Second Blog Post",
     "content": "Mock data",
     "date": "2021-02-28",
     "img": "/assets/images/blog-img.jpeg"
   },
   {
     "id": 1,
-    "subject": "My First Blog Pose",
+    "subject": "My Third Blog Post",
     "content": "Mock data",
     "date": "2021-02-28",
     "img": "/assets/images/blog-img.jpeg"
   },
   {
     "id": 1,
-    "subject": "My First Blog Pose",
+    "subject": "My Fourth Blog Post",
     "content": "Mock data",
     "date": "2021-02-28",
     "img": "/assets/images/blog-img.jpeg"
   },
   {
     "id": 1,
-    "subject": "My First Blog Pose",
+    "subject": "My Fifth Blog Post",
     "content": "Mock data",
     "date": "2021-02-28",
     "img": "/assets/images/blog-img.jpeg"
   },
   {
     "id": 1,
-    "subject": "My First Blog Pose",
+    "subject": "My Sixth Blog Post",
     "content": "Mock data",
     "date": "2021-02-28",
     "img": "/assets/images/blog-img.jpeg"
