@@ -1,4 +1,4 @@
-@import "~@angular/material/theming";
+@use '~@angular/material' as mat;
 
 // must interpolate value if using CSS variables since they do not accept rgba() as values
 // @example #{getThemeRgba($theme, 0.05)}
@@ -22,11 +22,11 @@
 
   .bmh-table {
     --bs-table-bg: transparent;
-    --bs-table-striped-color: mat-color($foreground, text);
+    --bs-table-striped-color: mat.get-color-from-palette($foreground, text);
     --bs-table-striped-bg: #{getThemeRgba($theme, 0.05)};
-    --bs-table-active-color: mat-color($foreground, text);
+    --bs-table-active-color: mat.get-color-from-palette($foreground, text);
     --bs-table-active-bg: #{getThemeRgba($theme, 0.1)};
-    --bs-table-hover-color: mat-color($foreground, text);
+    --bs-table-hover-color: mat.get-color-from-palette($foreground, text);
     --bs-table-hover-bg: #{getThemeRgba($theme, 0.075)};
     --bs-table-accent-bg: null;
 
@@ -109,14 +109,14 @@
         position: sticky;
         top: 0;
         z-index: 1;
-        background-color: mat-color($background, background);
+        background-color: mat.get-color-from-palette($background, background);
       }
     }
 
     &.table-header-primary {
       th {
-        background: mat-color($primary, default);
-        color: mat-color($primary, default-contrast);
+        background: mat.get-color-from-palette($primary, default);
+        color: mat.get-color-from-palette($primary, default-contrast);
 
         .mat-sort-header-arrow {
           color: inherit;
