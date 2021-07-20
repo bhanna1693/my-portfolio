@@ -6415,7 +6415,7 @@ PortfolioComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_
     } if (rf & 2) {
         let _t;
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵqueryRefresh"](_t = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵloadQuery"]()) && (ctx.rightPanel = _t.first);
-    } }, decls: 11, vars: 12, consts: [[3, "toggleSidenav"], [3, "opened", "mode", "fixedInViewport", "fixedTopGap"], ["sidenav", ""], [3, "navItemSelected"]], template: function PortfolioComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 12, vars: 12, consts: [[3, "toggleSidenav"], [3, "opened", "mode", "fixedInViewport", "fixedTopGap"], ["sidenav", ""], [3, "navItemSelected"], [1, "mt-3"]], template: function PortfolioComponent_Template(rf, ctx) { if (rf & 1) {
         const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](0, "app-portfolio-header", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵlistener"]("toggleSidenav", function PortfolioComponent_Template_app_portfolio_header_toggleSidenav_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵrestoreView"](_r1); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵreference"](3); return _r0.toggle(); });
@@ -6431,7 +6431,9 @@ PortfolioComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](9, "mat-sidenav-content");
-        _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](10, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementStart"](10, "div", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelement"](11, "router-outlet");
+        _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_9__["ɵɵelementEnd"]();
     } if (rf & 2) {
